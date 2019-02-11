@@ -240,3 +240,7 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+*.equ
+
+BDA_FS19_Projektdokumentation\.pdf

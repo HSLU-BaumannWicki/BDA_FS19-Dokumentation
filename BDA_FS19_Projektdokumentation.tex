@@ -1,0 +1,363 @@
+\documentclass[a4paper]{scrreprt}
+
+%%% PACKAGES %%%
+
+% add unicode support and use german as language
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% Use Helvetica as font
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+% Better tables
+\usepackage{tabularx}
+
+% Better enumerisation env
+\usepackage{enumitem}
+
+% Use graphics
+\usepackage{graphicx}
+
+% Have subfigures and captions
+\usepackage{subcaption}
+
+% Be able to include PDFs in the file
+\usepackage{pdfpages}
+
+% Have custom abstract heading
+\usepackage{abstract}
+
+% Need a list of equation
+\usepackage{tocloft}
+\usepackage{ragged2e}
+
+% Better equation environment
+\usepackage{amsmath}
+
+% Symbols for most SI units
+\usepackage{siunitx}
+
+\usepackage{csquotes}
+
+% Clickable Links to Websites and chapters
+\usepackage{hyperref}
+
+% Change page rotation
+\usepackage{pdflscape}
+
+% Symbols like checkmark
+\usepackage{amssymb}
+\usepackage{pifont}
+
+% Bibliography & citing
+\usepackage[
+	backend=biber,
+	style=apa,
+	bibstyle=apa,
+	citestyle=apa,
+	sortlocale=de_DE
+	]{biblatex}
+\addbibresource{Referenzen.bib}
+\DeclareLanguageMapping{ngerman}{ngerman-apa}
+
+%%% COMMAND REBINDINGS %%%
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\xmark}{\ding{55}}
+
+% Define list of equations - Thanks to Charles Clayton: https://tex.stackexchange.com/a/354096
+\newcommand{\listequationsname}{\huge{Formelverzeichnis}}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{
+	\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+\setlength{\cftmyequationsnumwidth}{2.3em}
+\setlength{\cftmyequationsindent}{1.5em}
+
+% Usage {equation}{caption}{label}
+\newcommand{\indexequation}[3]{
+	\begin{align} \label{#3} \ensuremath{\boxed{#1}} \end{align}
+	\myequations{#3} \centering \small \textit{#2} \normalsize \justify }
+
+%%% PATH DEFINITIONS %%%
+% Define the path were images are found
+\graphicspath{{./img/}{./pdf/}}
+
+%%% TITLEPAGE %%%
+
+\title{Projektdokumentation}
+\subtitle{BDA FS19}
+\author{Pascal Baumann, Dane Wicki}
+\publishers{Martin Jud}
+\date{\today}
+
+%%% DOCUMENT %%%
+
+\begin{document}
+\pagenumbering{Roman}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+
+
+\chapter*{Eidesstattliche Erklärung}
+Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne unerlaubte fremde Hilfe angefertigt haben, alle verwendeten Quellen, Literatur und andere Hilfsmittel angegeben haben, wörtlich oder inhaltlich entnommene Stellen als solche kenntlich gemacht haben, das Vertraulichkeitsinteresse des Auftraggebers wahren und die Urheberrechtsbestimmungen der Fachhochschule Zentralschweiz (siehe Merkblatt «Studentische Arbeiten» auf MyCampus) respektieren werden.
+
+\vspace{1em}
+
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{XXXX}
+	Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{PascalBaumann} & Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{DaneWicki} \\ \cline{2-2}\cline{4-4}
+	Baumann, Pascal & & Wicki, Dane & \\
+	Datum: & \today & Ort: & Rotkreuz\\
+\end{tabularx}
+\renewcommand{\arraystretch}{1}
+
+\renewcommand{\abstractname}{Management Summary}
+\begin{abstract}
+	Abstract
+\end{abstract}
+
+\tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
+\chapter{Einleitung}
+
+\section{Aufgabenstellung und Zielsetzung}
+
+\chapter{Grundlagen}
+\label{ch:Grundlagen}
+
+\section{Technologische Grundlagen}
+
+\subsection{Konzepte}
+
+\section{Anwendungen}
+
+\chapter{Lösung}
+
+\section{Konzeptionelle Idee}
+\label{sec:KonzeptionelleIdee}
+
+\section{Applikationsablauf}
+
+\chapter{Technische Beschreibung}
+
+\section{Projektinformationen}
+
+\subsection{Vorgehensmodell}
+
+Alle Wirtschaftsprojekte an der Hochschule Luzern fallen in eine der folgenden Kategorien:
+
+\begin{enumerate}
+	\item Einsatz von Standardsoftware und Services
+	\item Software- und Produktentwicklung
+	\item Innovationsprojekt
+	\item IT-Infrastrukturentwicklung
+	\item Strukturierte Analyse und Konzeption von Systemen und Abläufen
+\end{enumerate}
+
+Dabei ist dieses Projekt als Innovationsprojekt und Softwareentwicklung klassifiziert worden. Wir erwarteten daher unter anderem, eine Evaluation, Recherchen und weitere Unbekannten. Um auf diese eingehen zu können, entschied sich das Team dafür die hybride, inkrementelle Agile Methode zu verwenden.
+
+\subsection{Agile Projektmethode}
+
+Die agile Projektmethode zielt darauf ab in einem ungewissen und sich verändernden Umfeld zu bestehen. Insbesondere bedeutet dies, das auf sich verändernde Voraussetzungen schnell reagiert werden kann und dabei ein funktionierendes Produkt entsteht \parencite{AgileAlliance2015}. Dies soll durch eine enge Zusammenarbeit mit dem Auftraggeber und guter teaminterner Kommunikation erreicht werden.
+
+\parencite{BaumannWicki2018}
+
+\subsection{Ermittlung offener Projektrahmenbedingungen}
+\label{ch:evaluation}
+
+\subsection{Einschränkungen und Abgrenzungen}
+
+\newpage
+\section{Systemspezifikation}
+\label{sec:SysSpec}
+
+\subsection{Anforderungen}
+\label{ch:Anforderungen}
+
+\subsection{Kontext}
+
+\subsection{Komponentendesign}
+
+\subsection{Architektur \& Design}
+
+\subsection{Interne Schnittstellen}
+
+\subsection{Klassendiagramm}
+
+\subsection{Anforderungen der Software}
+
+\subsection{Umsetzung Programmierung}
+
+\section{Testing}
+
+\subsection{Testfälle}
+
+\chapter{Projektmanagementplan}
+
+\section{Projektorganisation}
+
+\vspace{1em}
+
+\begin{tabularx}{\textwidth}{|X|X|}
+	\hline
+	\textbf{Teammitglied} & \textbf{Funktionen} \\
+	\hline
+	- & - \\
+	\hline
+\end{tabularx}
+
+\section{Projektführung}
+
+\section{Rahmenplan}
+
+\section{Risikomanagement}
+
+Es werden mögliche Risiken, welche während dem Projekt auftreten können aufgezählt. Diese werden auf Eintrittswahrscheinlichkeit und Schadensmass eingeschätzt, danach wird entschieden, welche Massnahmen getroffen werden können, und was deren Auswirkungen sind.
+
+\subsection{Definitionen}
+\label{sssec:Def}
+\vspace{1em}
+\noindent
+Eintrittswahrscheinlichkeit:
+
+\vspace{1em}
+\noindent
+\begin{tabularx}{\textwidth}{|l|l|X|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 14 Wochen auf \\
+	\hline
+	2 & unwahrscheinlich & Kann in 14 Wochen 0-1 Mal eintreten\\
+	\hline
+	3 & vorstellbar & Kann in 14 Wochen 1-2 Mal eintreten \\
+	\hline
+	4 & wahrscheinlich & Kann in 14 Wochen bis zu 3 Mal eintreten \\
+	\hline
+	5 & häufig & Kann in 14 Wochen 7 Mal eintreten\\
+	\hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Schadensausmass:
+
+\vspace{1em}
+\noindent
+\begin{tabularx}{\textwidth}{|l|l|X|}
+	\hline
+	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
+	\hline
+	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt, finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
+	\hline
+	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
+	\hline
+	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
+	Personenschäden treten nicht auf \\
+	\hline
+	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf.\\
+	\hline
+	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte.
+	\\
+	\hline
+\end{tabularx}
+
+\subsection{Risikokatalog}
+\label{sssec:Risikokatalog}
+Legende:
+\begin{itemize}
+	\item \textbf{S}chadensausmass bei Eintreffen des Risikos
+	\item \textbf{W}ahrscheinlichkeit das Risiko eintrifft
+	\item \textbf{K}ategorie: \textbf{T}echnisches oder \textbf{P}rojektbezogenes Risiko
+	\item \textbf{A}uswirkung auf das Projekt. Produkt aus S und W
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|l|X|l|l|l||l|}
+		\hline
+		\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
+		\hline
+		1 & Vorlage & P & 1 & 1 & 1\\
+		\hline
+	\end{tabularx}
+	\caption{Die im Projekt identifizierten Risiken}
+\end{table}
+
+\vspace{1em}
+
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[keepaspectratio, width=0.8\textwidth]{}
+	\caption{Auswirkungen der Risiken}
+\end{figure}
+
+\subsubsection{Massnahmen}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|l|X|}
+		\hline
+		\textbf{Nr.} & \textbf{Beschreibung Massnahme} \\
+		\hline
+		1 & Beschreibung\\
+		\hline
+	\end{tabularx}
+	\caption{Massnahmen um Effekte oder Eintrittswahrscheinlichkeit zu reduzieren}
+\end{table}
+
+\vspace{1em}
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|l|X|l|l|l||l|}
+		\hline
+		\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
+		\hline
+		1 & Template & P & 1 & 1 & 1\\
+		\hline
+	\end{tabularx}
+	\caption{Neueinschätzung der Risiken nach Einführung der Massnahmen}
+\end{table}
+
+\vspace{1em}
+
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[keepaspectratio, width=0.8\textwidth]{RisikoMatrix_nach_Massnahmen}
+	\caption{Risiken nach Massnahmen}
+\end{figure}
+
+\chapter{Evaluation und Validation}
+
+\section{Vergleich mit Anforderungen}
+\label{sec:VergleichAnforderungen}
+
+\section{Projekt Fazit}
+
+\section{Ausblick}
+\label{sec:Ausblick}
+
+
+\newpage
+
+\pagenumbering{Roman}
+
+\appendix
+
+\glossary{Abkürzungsverzeichnis}
+
+\listoffigures
+
+\listoftables
+
+\listofmyequations \pagebreak
+
+\printbibliography
+
+\end{document}

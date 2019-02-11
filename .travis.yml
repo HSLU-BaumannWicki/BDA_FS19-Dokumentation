@@ -1,0 +1,27 @@
+dist: trusty
+language: tex
+sudo: false
+
+install:
+  - cp -n texlive* /tmp/
+  - source /tmp/texlive_install.sh
+  - tlmgr install koma-script etoolbox logreq biblatex-apa csquotes siunitx oberdiek tocloft abstract pdfpages enumitem psnfss ms caption ec l3kernel l3packages zapfding symbol helvetic
+
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
+
+script:
+  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - biber *.bcf
+  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+
+deploy:
+  provider: releases
+  api_key: $GIT_AUTH
+  file: "PAWI_HS18_Projektdokumentation.pdf"
+  skip_cleanup: true
+  on:
+    tags: true
