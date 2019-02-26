@@ -216,6 +216,8 @@ Die agile Projektmethode zielt darauf ab in einem ungewissen und sich verändern
 
 \section{Rahmenplan}
 
+\newpage
+
 \section{Risikomanagement}
 
 Es werden mögliche Risiken, welche während dem Projekt auftreten können aufgezählt. Diese werden auf Eintrittswahrscheinlichkeit und Schadensmass eingeschätzt, danach wird entschieden, welche Massnahmen getroffen werden können, und was deren Auswirkungen sind.
@@ -254,19 +256,19 @@ Schadensausmass:
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt, finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
+	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt, finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf. \\
 	\hline
-	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
+	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf. \\
 	\hline
-	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
-	Personenschäden treten nicht auf \\
+	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Verzögerungen zur Folge. Finanzieller Schaden strapaziert das Projektbudget. Personenschäden treten nicht auf. \\
 	\hline
-	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf.\\
+	4 & kritisch & Starke Gefährdung des Projekts. Extreme Verzögerungen zur Folge. Finanzieller Schaden übersteigt das Projektbudget. Personenschäden treten geringfügig auf.\\
 	\hline
-	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte.
-	\\
+	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte. \\
 	\hline
 \end{tabularx}
+
+\newpage
 
 \subsection{Risikokatalog}
 \label{sssec:Risikokatalog}
@@ -285,19 +287,34 @@ Legende:
 		\hline
 		\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
 		\hline
-		1 & Vorlage & P & 1 & 1 & 1\\
+		1 & Meilensteine werden nicht erreicht & P & 4 & 2 & 8 \\
+		\hline
+		2 & Teammitglied fällt aus & P & 4 & 1 & 4 \\
+		\hline
+		3 & Fehlkommunikation im Team & P & 4 & 1 & 4 \\
+		\hline
+		4 & Produkt entspricht nicht den Kundenanforderungen & P & 5 & 2 & 10 \\
+		\hline
+		5 & Umsetzung des Produkts technisch nicht möglich & T & 4 & 3 & 12 \\
+		\hline
+		6 & Datenverlust & T & 5 & 2 & 10 \\
+		\hline
+		7 & Lieferschwierigkeiten von Teilen & P & 3 & 3 & 9 \\
 		\hline
 	\end{tabularx}
 	\caption{Die im Projekt identifizierten Risiken}
+	\label{tbl:Risks}
 \end{table}
 
 \vspace{1em}
 
 \begin{figure}[h!]
 	\centering
-	%\includegraphics[keepaspectratio, width=0.8\textwidth]{}
-	\caption{Auswirkungen der Risiken}
+	\includegraphics[keepaspectratio, width=0.6\textwidth]{Risks_before.png}
+	\caption{Auswirkungen der in Tabelle \ref{tbl:Risks} identifizierten Risiken}
 \end{figure}
+
+\newpage
 
 \subsubsection{Massnahmen}
 
