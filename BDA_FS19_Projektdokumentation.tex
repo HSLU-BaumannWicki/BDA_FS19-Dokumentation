@@ -215,7 +215,6 @@ Die agile Projektmethode zielt darauf ab in einem ungewissen und sich verändern
 \section{Projektführung}
 
 \section{Rahmenplan}
-
 \subsection{Meilensteine}
 \label{ssec:Meilensteine}
 Für das Projekt wurden vier Meilensteine definiert, welche jeweils im Vierwochenzyklus auftreten. Diese Meilensteine sind in Abbildung \ref{fig:Milestones} dargestellt.
@@ -238,6 +237,8 @@ Aus den im Kapitel \ref{ssec:Meilensteine} definierten Meilensteine wurden acht 
 	\label{fig:Rahmenplan_1}
 \end{figure}
 
+\newpage
+
 \section{Risikomanagement}
 
 Es werden mögliche Risiken, welche während dem Projekt auftreten können aufgezählt. Diese werden auf Eintrittswahrscheinlichkeit und Schadensmass eingeschätzt, danach wird entschieden, welche Massnahmen getroffen werden können, und was deren Auswirkungen sind.
@@ -254,15 +255,15 @@ Eintrittswahrscheinlichkeit:
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 14 Wochen auf \\
+	1 & unvorstellbar & Möglich aber eher unwahrscheinlich. Tritt nie oder einmal in 16 Wochen auf \\
 	\hline
-	2 & unwahrscheinlich & Kann in 14 Wochen 0-1 Mal eintreten\\
+	2 & unwahrscheinlich & Kann in 16 Wochen kein oder ein Mal eintreten\\
 	\hline
-	3 & vorstellbar & Kann in 14 Wochen 1-2 Mal eintreten \\
+	3 & vorstellbar & Kann in 16 Wochen ein bis zwei Mal eintreten \\
 	\hline
-	4 & wahrscheinlich & Kann in 14 Wochen bis zu 3 Mal eintreten \\
+	4 & wahrscheinlich & Kann in 16 Wochen bis zu drei Mal eintreten \\
 	\hline
-	5 & häufig & Kann in 14 Wochen 7 Mal eintreten\\
+	5 & häufig & Kann in 16 Wochen sieben Mal eintreten\\
 	\hline
 \end{tabularx}
 
@@ -276,19 +277,19 @@ Schadensausmass:
 	\hline
 	\textbf{Stufe} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt, finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf \\
+	1 & unwesentlich & Die Aufgabenerfüllung wird höchstens geringfügig beeinträchtigt, finanzieller Schaden ist im Rahmen des Projekts nicht beeinflussend. Personenschäden treten nicht auf. \\
 	\hline
-	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf \\
+	2 & geringfügig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Personenschäden treten nicht auf. \\
 	\hline
-	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt.Finanzieller Schaden strapaziert das Projektbudget
-	Personenschäden treten nicht auf \\
+	3 & mittelmässig & Wahrnehmbare Gefährdung / Einfluss auf das Projekt. Verzögerungen zur Folge. Finanzieller Schaden strapaziert das Projektbudget. Personenschäden treten nicht auf. \\
 	\hline
-	4 & kritisch & Starke Gefährdung des Projekts. Finanzieller Schaden übersteigt das Projektbudget massiv. Personenschäden treten geringfügig auf.\\
+	4 & kritisch & Starke Gefährdung des Projekts. Extreme Verzögerungen zur Folge. Finanzieller Schaden übersteigt das Projektbudget. Personenschäden treten geringfügig auf.\\
 	\hline
-	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte.
-	\\
+	5 & katastrophal & Projektabbruch zur Folge. Finanzieller Schaden kann zum Projektstopp führen. Verletzung der Persönlichkeitsrechte. \\
 	\hline
 \end{tabularx}
+
+\newpage
 
 \subsection{Risikokatalog}
 \label{sssec:Risikokatalog}
@@ -307,19 +308,34 @@ Legende:
 		\hline
 		\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
 		\hline
-		1 & Vorlage & P & 1 & 1 & 1\\
+		1 & Meilensteine werden nicht erreicht & P & 4 & 2 & 8 \\
+		\hline
+		2 & Teammitglied fällt aus & P & 4 & 1 & 4 \\
+		\hline
+		3 & Fehlkommunikation im Team & P & 4 & 1 & 4 \\
+		\hline
+		4 & Produkt entspricht nicht den Kundenanforderungen & P & 5 & 2 & 10 \\
+		\hline
+		5 & Umsetzung des Produkts technisch nicht möglich & T & 4 & 3 & 12 \\
+		\hline
+		6 & Datenverlust & T & 5 & 2 & 10 \\
+		\hline
+		7 & Lieferschwierigkeiten von Teilen & P & 3 & 3 & 9 \\
 		\hline
 	\end{tabularx}
 	\caption{Die im Projekt identifizierten Risiken}
+	\label{tbl:Risks}
 \end{table}
 
 \vspace{1em}
 
 \begin{figure}[h!]
 	\centering
-	%\includegraphics[keepaspectratio, width=0.8\textwidth]{}
-	\caption{Auswirkungen der Risiken}
+	\includegraphics[keepaspectratio, width=0.6\textwidth]{Risks_before.png}
+	\caption{Auswirkungen der in Tabelle \ref{tbl:Risks} identifizierten Risiken}
 \end{figure}
+
+\newpage
 
 \subsubsection{Massnahmen}
 
@@ -328,7 +344,19 @@ Legende:
 		\hline
 		\textbf{Nr.} & \textbf{Beschreibung Massnahme} \\
 		\hline
-		1 & Beschreibung\\
+		1 & Meilensteine werden in zwei Zweiwöchigen Sprints absolviert. Die Tasks pro Sprint werden weiter detailliert heruntergebrochen. So sollen die Arbeiten sowohl auf Makro- wie Mikrosicht eingeplant werden. \\
+		\hline
+		2 & Arbeiten werden so strukturiert und dokumentiert, dass das zweite Mitglied diese auch übernehmen kann. Es werden Spezialisierungen der Teammitglieder insoweit verhindert, dass Wissenslücken minimiert werden. Recherchen sollen Zusammenfassungen und Merkblätter über die gewonnenen Erkenntnisse als Resultat haben.\\
+		\hline
+		3 & Der Kontakt wird von beiden Teammitgliedern sowohl horizontal im Team wie auch vertikal zu den Stakeholdern aktiv gesucht. Es werden den Arbeiten auch teambildende Aktivitäten zusammen absolviert.\\
+		\hline
+		4 & Der Kunde muss den Fortschritt alle vier Wochen in einer Sitzung kontrollieren, avisieren und, wenn nötig, Anpassungen fordern.\\
+		\hline
+		5 & Es soll während den Recherchen schon im Hinblick auf die technische Umsetzung acht gegeben werden.\\
+		\hline
+		6 & Sowohl produzierten Artefakte, wie auch aktuelle getätigte Arbeiten werden auf auswärtige Plattformen ausgelagert.\\
+		\hline
+		7 & Teile werden bei Bedarf sofort bestellt, es werden inländische, etablierte Lieferanten, vor evtl. günstigeren Ausländischen vorgezogen.\\
 		\hline
 	\end{tabularx}
 	\caption{Massnahmen um Effekte oder Eintrittswahrscheinlichkeit zu reduzieren}
@@ -341,18 +369,31 @@ Legende:
 		\hline
 		\textbf{Nr.} & \textbf{Beschreibung / Risiko} & \textbf{K} & \textbf{S} & \textbf{W} & \textbf{A} \\
 		\hline
-		1 & Template & P & 1 & 1 & 1\\
+		1 & Meilensteine werden nicht erreicht & P & 4 & 1 & 4 \\
+		\hline
+		2 & Teammitglied fällt aus & P & 3 & 1 & 3 \\
+		\hline
+		3 & Fehlkommunikation im Team & P & 4 & 1 & 4 \\
+		\hline
+		4 & Produkt entspricht nicht den Kundenanforderungen & P & 5 & 1 & 5 \\
+		\hline
+		5 & Umsetzung des Produkts technisch nicht möglich & T & 4 & 3 & 12 \\
+		\hline
+		6 & Datenverlust & T & 5 & 1 & 5 \\
+		\hline
+		7 & Lieferschwierigkeiten von Teilen & P & 3 & 2 & 6 \\
 		\hline
 	\end{tabularx}
 	\caption{Neueinschätzung der Risiken nach Einführung der Massnahmen}
+	\label{tbl:Massnahmen}
 \end{table}
 
 \vspace{1em}
 
 \begin{figure}[h!]
 	\centering
-	%\includegraphics[keepaspectratio, width=0.8\textwidth]{RisikoMatrix_nach_Massnahmen}
-	\caption{Risiken nach Massnahmen}
+	\includegraphics[keepaspectratio, width=0.6\textwidth]{Risks_after.png}
+	\caption{Auswirkungen der Risiken nach den in Tabelle \ref{tbl:Massnahmen} vorgeschlagenen Massnahmen}
 \end{figure}
 
 \chapter{Evaluation und Validation}
