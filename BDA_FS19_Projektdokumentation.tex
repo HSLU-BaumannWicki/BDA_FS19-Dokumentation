@@ -1,4 +1,6 @@
-\documentclass[a4paper]{scrreprt}
+\documentclass[
+	a4paper
+]{scrreprt}
 
 %%% PACKAGES %%%
 
@@ -51,6 +53,8 @@
 \usepackage{amssymb}
 \usepackage{pifont}
 
+\usepackage[absolute]{textpos}
+
 % Bibliography & citing
 \usepackage[
 	backend=biber,
@@ -80,6 +84,10 @@
 	\begin{align} \label{#3} \ensuremath{\boxed{#1}} \end{align}
 	\myequations{#3} \centering \small \textit{#2} \normalsize \justify }
 
+% Todolist - credit to https://tex.stackexchange.com/questions/247681/how-to-create-checkbox-todo-list
+\newlist{todolist}{itemize}{1}
+\setlist[todolist]{label=$\square$}
+
 %%% PATH DEFINITIONS %%%
 % Define the path were images are found
 \graphicspath{{./img/}{./pdf/}}
@@ -88,37 +96,9 @@
 
 \begin{document}
 
-\begin{titlepage}
-	\begin{center}
-		\vspace*{5cm}
-		\Huge{\textbf{RFID markierte Exemplare}} \\
-		\vspace{0.5em}
-		\Large{Bachelordiplomarbeit FS2019}\\
-		\vspace{3em}
-		\LARGE{Pascal Baumann, Dane Wicki}\\
-		\vspace{1em}
-		\Large{Betreuer: Martin Jud}\\
-		\vfill
-		\large{Hochschule Luzern - Departement Informatik}\\
-		\large{\today}\\
-		\large{Version 0.1.0}
-	\end{center}
-\end{titlepage}
+\include{HSLU_Preamble}
 
 \pagenumbering{Roman}
-
-\chapter*{Eidesstattliche Erklärung}
-Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne unerlaubte fremde Hilfe angefertigt haben, alle verwendeten Quellen, Literatur und andere Hilfsmittel angegeben haben, wörtlich oder inhaltlich entnommene Stellen als solche kenntlich gemacht haben, das Vertraulichkeitsinteresse des Auftraggebers wahren und die Urheberrechtsbestimmungen der Fachhochschule Zentralschweiz (siehe Merkblatt «Studentische Arbeiten» auf MyCampus) respektieren werden.
-
-\vspace{1em}
-
-\renewcommand{\arraystretch}{2}
-\begin{tabularx}{\textwidth}{XXXX}
-	Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{PascalBaumann} & Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{DaneWicki} \\ \cline{2-2}\cline{4-4}
-	Baumann, Pascal & & Wicki, Dane & \\
-	Datum: & \today & Ort: & Rotkreuz\\
-\end{tabularx}
-\renewcommand{\arraystretch}{1}
 
 \renewcommand{\abstractname}{Management Summary}
 \begin{abstract}
