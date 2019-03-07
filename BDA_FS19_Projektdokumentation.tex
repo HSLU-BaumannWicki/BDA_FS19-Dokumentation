@@ -1,4 +1,6 @@
-\documentclass[a4paper]{scrreprt}
+\documentclass[
+	a4paper
+]{scrreprt}
 
 %%% PACKAGES %%%
 
@@ -51,6 +53,8 @@
 \usepackage{amssymb}
 \usepackage{pifont}
 
+\usepackage[absolute]{textpos}
+
 % Bibliography & citing
 \usepackage[
 	backend=biber,
@@ -80,40 +84,21 @@
 	\begin{align} \label{#3} \ensuremath{\boxed{#1}} \end{align}
 	\myequations{#3} \centering \small \textit{#2} \normalsize \justify }
 
+% Todolist - credit to https://tex.stackexchange.com/questions/247681/how-to-create-checkbox-todo-list
+\newlist{todolist}{itemize}{1}
+\setlist[todolist]{label=$\square$}
+
 %%% PATH DEFINITIONS %%%
 % Define the path were images are found
 \graphicspath{{./img/}{./pdf/}}
 
-%%% TITLEPAGE %%%
-
-\title{Projektdokumentation}
-\subtitle{BDA FS19}
-\author{Pascal Baumann, Dane Wicki}
-\publishers{Martin Jud}
-\date{\today}
-
 %%% DOCUMENT %%%
 
 \begin{document}
+
+\include{HSLU_Preamble}
+
 \pagenumbering{Roman}
-\begin{titlepage}
-\maketitle
-\end{titlepage}
-
-
-
-\chapter*{Eidesstattliche Erklärung}
-Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne unerlaubte fremde Hilfe angefertigt haben, alle verwendeten Quellen, Literatur und andere Hilfsmittel angegeben haben, wörtlich oder inhaltlich entnommene Stellen als solche kenntlich gemacht haben, das Vertraulichkeitsinteresse des Auftraggebers wahren und die Urheberrechtsbestimmungen der Fachhochschule Zentralschweiz (siehe Merkblatt «Studentische Arbeiten» auf MyCampus) respektieren werden.
-
-\vspace{1em}
-
-\renewcommand{\arraystretch}{2}
-\begin{tabularx}{\textwidth}{XXXX}
-	Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{PascalBaumann} & Unterschrift: & \includegraphics[keepaspectratio, width=3cm]{DaneWicki} \\ \cline{2-2}\cline{4-4}
-	Baumann, Pascal & & Wicki, Dane & \\
-	Datum: & \today & Ort: & Rotkreuz\\
-\end{tabularx}
-\renewcommand{\arraystretch}{1}
 
 \renewcommand{\abstractname}{Management Summary}
 \begin{abstract}
@@ -128,23 +113,24 @@ Ich erkläre hiermit, dass ich/wir die vorliegende Arbeit selbständig und ohne 
 
 \section{Aufgabenstellung und Zielsetzung}
 
-\chapter{Grundlagen}
-\label{ch:Grundlagen}
+\chapter{Stand der Technik}
+\label{ch:StandDerTechnik}
 
 \section{Technologische Grundlagen}
 
-\subsection{Konzepte}
+\section{Technische Konzepte}
 
 \section{Anwendungen}
 
-\chapter{Lösung}
+\chapter{Ideen und Konzepte}
 
-\section{Konzeptionelle Idee}
-\label{sec:KonzeptionelleIdee}
+\section{Grundidee}
 
-\section{Applikationsablauf}
+\section{Lösungskonzept 1}
 
-\chapter{Technische Beschreibung}
+\section{Lösungskonzept 2}
+
+\chapter{Methode}
 
 \section{Projektinformationen}
 
@@ -188,10 +174,10 @@ Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werd
 	\item Die Lösungskonzepte müssen mit dem Lagersystem kommunizieren können
 	\item Die Lösungskonzepte müssen die RFID Tags in weniger als 1 Sekunden identifizieren können.
 	\item Die Lösungskonzepte müssen für das bestehende Hochregallager der Speicherbibliothek verwendbar sein.
-
+	
 	\item Das Proof of Concept muss technisch aufzeigen, wie viele RFID Tags in einer Sekunde gelesen werden können.
 	\item Das Proof of Concept soll eine RFID Lesezuverlässigkeit von 95\% aufweisen.
-
+	
 	\item Das MVP soll mit der Datenbank des Lagersystems kommunizieren können.
 	\item Das MVP soll in einem von Störfaktoren bereinigten Zustand die gleiche Anzahl RFID Tags lesen können wie im Proof of Concept definiert.
 	\item Das MVP soll erkennen, wenn eine Box ein Exemplar enthält, welches nicht dieser Box zugehörig ist und dies als eine Unstimmigkeit markieren.
@@ -200,8 +186,12 @@ Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werd
 
 \subsection{Einschränkungen und Abgrenzungen}
 
+\section{Machbarkeitsstudie}
+
+\chapter{Realisierung}
+
 \newpage
-\section{Systemspezifikation}
+-\section{Systemspezifikation}
 \label{sec:SysSpec}
 
 \subsection{Anforderungen}
@@ -221,9 +211,7 @@ Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werd
 
 \subsection{Umsetzung Programmierung}
 
-\section{Testing}
-
-\subsection{Testfälle}
+\subsection{Testing}
 
 \chapter{Projektmanagementplan}
 
@@ -435,15 +423,15 @@ Legende:
 \end{figure}
 
 \chapter{Evaluation und Validation}
+\label{ch:Eval}
 
 \section{Vergleich mit Anforderungen}
 \label{sec:VergleichAnforderungen}
 
+\chapter{Ausblick}
+\label{ch:Ausblick}
+
 \section{Projekt Fazit}
-
-\section{Ausblick}
-\label{sec:Ausblick}
-
 
 \newpage
 
