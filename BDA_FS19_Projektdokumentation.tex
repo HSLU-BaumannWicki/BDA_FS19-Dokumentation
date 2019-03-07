@@ -80,6 +80,7 @@
 \setlength{\cftmyequationsindent}{1.5em}
 
 % Usage {equation}{caption}{label}
+% \indexequation{b = \frac{\pi}{\SI{180}{\degree}}\cdot\beta\cdot 6378.137}{Bogenlänge $b$ des Winkels $\beta$ mit Radius 6378.137m (Distanz zum Erdmittelpunkt am Äquator)}{Bogenlaenge}
 \newcommand{\indexequation}[3]{
 	\begin{align} \label{#3} \ensuremath{\boxed{#1}} \end{align}
 	\myequations{#3} \centering \small \textit{#2} \normalsize \justify }
@@ -116,7 +117,15 @@
 \chapter{Stand der Technik}
 \label{ch:StandDerTechnik}
 
+Das erste RFID-System wurde von den Allierten im Zweiten Weltkrieg eingesetzt. Deren Freund-Feind-Erkennung funktionierte über eine passive Reflektion der Radarwellen, welche auf die Frequenz der Radarsender geeicht war. Verbündete Flieger ergaben dadurch ein viel stärkeres Signal und waren als hellere Punkte erkennbar (\cite{chawla2007}, \cite{uswardep1946_3}). In den 1960er wurden in den USA verschiedenste Patente angemeldet, welche sich das Prinzip der elektromagnetischen Induktion zunutze machen, um sich gegenüber einem Sender zu identifizieren. Die Adaption der Technologie liess jedoch auf sich warten, \citeauthor{want2004} identifiziert als Grund dafür die fehlende Marktviabilität, die Ausgereiftheit der Technologie selbst und die Adaptionskosten \parencite{want2004}. All dies hat sich in den 60 Jahren seither geändert und RFID ist eine etablierte Technologie, welche in verschiedensten Sparten eingesetzt wird.
+
 \section{Technologische Grundlagen}
+
+Bei der Funktionsweise von RFID Tags muss man zwischen zwei Funktionalitäten unterscheiden, welche auf die Entfernung zwischen Transponder und Interrogator abhängig sind. Im Nahbereich (engl. Near-Field RFID) funktioniert die Stromversorgung über magnetische Induktion (die Arbeitsspannung der Chips liegt im Mikro- bis Miliwattbereich). Und die Kommunikation zwischen Interrogator und Transponder wird über "load modulation"\ realisiert. Dies bedeutet nicht anders, als das der Transporter, aktiviert durch das Feld des Interrogator, selber beginnt ein Feld auszustrahlen. Dadurch entstehen Interferenzen im Feld welche sich durch minimale Spannungsänderungen in der Spule des Interrogators messen lassen \parencite{want2006}. Die Distanz des Nahfelds ist durch die Gleichung \ref{NearFieldDistance} gegeben. Für HighFrequency (HF) Tags (wie diejenigen die auch in der Speicherbibliothek verwendet werden) ist die Betriebsfrequenz durch den ISO Standard 18000-3 auf 13.56MHz festgelegt und ergibt damit eine Distanz von 3.519m für das Nahfeld.
+
+\indexequation{d=\frac{\lambda}{2\pi}}{Reichweite des reaktiven Nahfelds}{NearFieldDistance}
+\indexequation{\lambda=\frac{c}{f}}{Definition der Wellenlänge $\lambda$ in Abhängigkeit der Lichtgeschwindigkeit c}{Wavelength}
+\indexequation{d=\frac{c}{2\lambda\pi}}{Definition der Wellenlänge in Gleichung \ref{NearFieldDistance} eingesetzt}{NearFieldEM}
 
 \section{Technische Konzepte}
 
