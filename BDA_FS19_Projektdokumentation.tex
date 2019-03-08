@@ -134,13 +134,13 @@ Das erste \gls{rfid}-System wurde von den Allierten im Zweiten Weltkrieg eingese
 
 \section{Technologische Grundlagen}
 
-Bei der Funktionsweise von \gls{rfid} Tags muss man zwischen zwei Funktionalitäten unterscheiden, welche auf die Entfernung zwischen Transponder und Interrogator abhängig sind. Im Nahbereich (engl. Near-Field \gls{rfid}) funktioniert die Stromversorgung über magnetische Induktion (die Arbeitsspannung der Chips liegt im Mikro- bis Miliwattbereich). Und die Kommunikation zwischen Interrogator und Transponder wird über "load modulation"\ realisiert. Dies bedeutet nicht anders, als das der Transporter, aktiviert durch das Feld des Interrogator, selber beginnt ein Feld auszustrahlen. Dadurch entstehen Interferenzen im Feld welche sich durch minimale Spannungsänderungen in der Spule des Interrogators messen lassen \parencite{want2006}. Die Distanz des Nahfelds ist durch die Gleichung \ref{NearFieldEM} gegeben. Für HighFrequency (HF) Tags (wie diejenigen die auch in der Speicherbibliothek verwendet werden) ist die Betriebsfrequenz durch den ISO Standard 18000-3 auf 13.56MHz festgelegt und ergibt damit eine Distanz von 3.519m für das Nahfeld.
+Bei der Funktionsweise von \gls{rfid} Tags muss man zwischen zwei Funktionalitäten unterscheiden, welche auf die Entfernung zwischen Transponder und Interrogator abhängig sind. Im Nahbereich (engl. Near-Field \gls{rfid}) funktioniert die Stromversorgung über magnetische Induktion (die Arbeitsspannung der Chips liegt im Mikro- bis Miliwattbereich). Und die Kommunikation zwischen Interrogator und Transponder wird über "load modulation"\ realisiert. Dies bedeutet nicht anders, als das der Transporter, aktiviert durch das Feld des Interrogator, selber beginnt ein Feld auszustrahlen. Dadurch entstehen Interferenzen im Feld welche sich durch minimale Spannungsänderungen in der Spule des Interrogators messen lassen \parencite{want2006}. Die Distanz des Nahfelds ist durch die Gleichung \ref{NearFieldEM} gegeben. Für \gls{HF} Tags (wie diejenigen die auch in der Speicherbibliothek verwendet werden) ist die Betriebsfrequenz durch den ISO Standard 18000-3 auf 13.56MHz festgelegt und ergibt damit eine Distanz von 3.519m für das Nahfeld.
 
 \indexequation{d=\frac{\lambda}{2\pi}}{Reichweite des reaktiven Nahfelds}{NearFieldDistance}
 \indexequation{\lambda=\frac{c}{f}}{Definition der Wellenlänge $\lambda$ in Abhängigkeit der Lichtgeschwindigkeit c}{Wavelength}
 \indexequation{d=\frac{c}{2\lambda\pi}}{Definition der Wellenlänge in Gleichung \ref{NearFieldDistance} eingesetzt}{NearFieldEM}
 
-Im Fernfeldbereich erhält der \gls{rfid} Tag direkt über die ausgestrahlte Elektromagnetischen Wellen. Die Abnahme der Energiedichte auf Distanz ist dabei proportional zu $\frac{1}{r^2}$. Dennoch ist es durch Fortschritte in der Miniaturisierung und besserer Energieeffizienz moderner Halbleiter und Chips möglich dadurch UHF Tags mit Strom zu versorgen. 
+Im Fernfeldbereich erhält der \gls{rfid} Tag direkt über die ausgestrahlte Elektromagnetischen Wellen. Die Abnahme der Energiedichte auf Distanz ist dabei proportional zu $\frac{1}{r^2}$. Dennoch ist es durch Fortschritte in der Miniaturisierung und besserer Energieeffizienz moderner Halbleiter und Chips möglich dadurch \gls{UHF} Tags mit Strom zu versorgen. 
 
 \section{Technische Konzepte}
 
@@ -463,7 +463,7 @@ Legende:
 
 \appendix
 
-\glossary{Abkürzungsverzeichnis}
+\printglossary
 
 \listoffigures
 
