@@ -5,7 +5,7 @@ sudo: false
 install:
   - cp -n texlive* /tmp/
   - source /tmp/texlive_install.sh
-  - tlmgr install koma-script etoolbox logreq biblatex-apa csquotes siunitx oberdiek tocloft abstract pdfpages enumitem psnfss ms caption ec l3kernel l3packages zapfding symbol helvetic textpos
+  - tlmgr install koma-script etoolbox logreq biblatex-apa csquotes siunitx oberdiek tocloft abstract pdfpages enumitem psnfss ms caption ec l3kernel l3packages zapfding symbol helvetic textpos glossaries xkeyval mfirstuc textcase xfor datatool substr fp tracklang
 
 cache:
   directories:
@@ -13,15 +13,16 @@ cache:
     - $HOME/.texlive
 
 script:
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error BDA_FS19_Projektdokumentation.tex
   - biber *.bcf
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
-  - pdflatex -interaction=nonstopmode -halt-on-error *.tex
+  - makeglossaries BDA_FS19_Projektdokumentation
+  - pdflatex -interaction=nonstopmode -halt-on-error BDA_FS19_Projektdokumentation.tex
+  - pdflatex -interaction=nonstopmode -halt-on-error BDA_FS19_Projektdokumentation.tex
 
 deploy:
   provider: releases
   api_key: $GIT_AUTH
-  file: "PAWI_HS18_Projektdokumentation.pdf"
+  file: "BDA_FS19_Projektdokumentation.pdf"
   skip_cleanup: true
   on:
     tags: true
