@@ -22,7 +22,7 @@ script:
 deploy:
   provider: releases
   api_key: $GIT_AUTH
-  file: "PAWI_HS18_Projektdokumentation.pdf"
+  file: "BDA_FS19_Projektdokumentation.pdf"
   skip_cleanup: true
   on:
     tags: true
