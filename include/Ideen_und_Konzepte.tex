@@ -9,3 +9,90 @@
 \section{Lösungskonzept 2}
 
 \input{include/Zweites_Konzept}
+
+\section{Validation der Konzepte}
+
+\subsection{Unbekannte im Bereich der Technischen Möglichkeiten}
+Beide Beschriebene Konzepte Setzten gewisse Technische möglichkeiten voraus, damit diese umgesetzt werden können. Für die Validation dieser Technischen Möglichkeiten wurden verschiedene Versuche erstellt, welche mit einem zur verfügung stehenden RFID Lesegerät durchgeführt werden sollen.
+Für das Konzept zur Auffindung eines deplatzierten Exemplars im Hochregallager galt es folgende Technische Möglichkeiten abzuklären:
+\begin{itemize}
+	\item Effektive Reichweite zum auslesen eines Tags (min 97cm)
+	\item Lesegeschwindigkeit eines Tags
+	\item Lesbarkeit eines Tags bei Fahrt von 4m/s
+	\item Seitliche Reichweite (Bei 60cm ca. 20cm)
+	\item Ausrichtung des Tags
+	\item Abschirmung und Störungen durch Metall, Bücher, Wlan sowie Rakobehälter
+	\item Interferenz mehrerer Antennen
+	\item Auslesen von gestapelten Tags
+\end{itemize}
+Für das Konzept zur Auffindung eines deplatzierten Exemplars im Hochregallager galt es folgende Technische Möglichkeiten abzuklären:
+\begin{itemize}
+	\item Effektive Reichweite zum auslesen eines Tags (min 54cm)
+	\item Lesegeschwindigkeit Anzahl Tags (ca. 40Tags/s)
+	\item Seitliche Reichweite (Bei 54cm ca. 20cm)
+	\item Ausrichtung des Tags (bis zu 90\SIUnitSymbolDegree)
+	\item Abschirmung und Störung durch Metall, Bücher, Wlan, Smartphone, Kreditkarten oder Stromquellen
+	\item Interferenz mehrerer Antennen
+	\item Auslesen von gestapelten Tags
+\end{itemize}
+
+Aus diesen abzuklärenden Technischen Möglichkeiten wurden schliesslich folgende Versuche definiert, welche mit einem RFID Leser durchgeführt werden sollten:
+\begin{enumerate}
+	\item Effektive Reichweite gerade
+	\item Lesegeschwindigkeit Bulk reading
+	\item Seitliche Reichweite
+	\item Ausrichtung des Tags
+	\item Abschirmung durch Gegenstände (Metall, Bücher, Rakobehälter)
+	\item Interferenz mehrerer Antennen
+	\item Auslesen bewegende Box
+	\item Störung durch WLAN
+	\item Störung durch Smartphone
+	\item Störung durch Kreditkarte
+	\item Störung durch Stromquellen
+	\item Auslesen von gestapelten Tags
+\end{enumerate}
+Die genaue Definition ist im Anhang \ref{app:ch:versuche} zu finden.
+
+\subsection{Vorgehen zur Abklärung der Technischen Möglichkeiten}
+Durch das Knappe Budget, welches dem Team zur Verfügung stand, konnte bei der Hardwarebeschaffung keine Inländische Vertreiber verwendet werden. Es wurde schliesslich der Hardwarehersteller Hyientech aus China für die Beschaffung der Hardware ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
+\begin{itemize}
+	\item HYH1W2T (RFID Lesegerät)
+	\item 2x HYP3242 (RFID Antennen)
+\end{itemize}
+Die genauen Spezifikationen der Hardware können im Anhang \ref{app:ch:hardwarespez} gefunden werden.
+
+Da zudem keine Weiteren Hersteller sich bereiterklärten für eine Leihgabe, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
+
+Für die Durchführung der Versuche wurden die Antennen auf einer Hölzernen Vorrichtung befestigt, anschliessend wurde das Tag an einer weiteren Vorrichtung befestigt und in einem gemäss den Testversuchsbeschreibungen definierten Position platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
+\begin{figure}[h!]
+	\begin{subfigure}{.5\linewidth}
+		\includegraphics[keepaspectratio,height=4cm]{Versuch1MaximaleDistanz}
+		\caption{Versuches Nummer 1 mit einem Abstand von 60cm}
+		\label{fig:versuchaufbaunmr1}
+	\end{subfigure}\hfill%
+	\begin{subfigure}{.35\linewidth}
+		\centering
+		\includegraphics[keepaspectratio,height=4cm]{TestInterferenzAntennen}
+		\caption{Versuch Nummer 7 mit einem Winkel von 60\SIUnitSymbolDegree}
+		\label{fig:versuchaufbaunmr7}
+	\end{subfigure}
+	\caption{Zwei Versuchsaufbauten}
+	\label{fig:versuchsaufbauten}
+\end{figure}
+
+
+\subsubsection{Software}
+Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde für die Versuche ein eigene Applikation geschrieben, welche für die Protokolle der Resultate verantwortlich ist.
+
+Bei der Implementation der Software wurde beachtet, dass die Kommunikation mit der Hardware bereits soweit Abstrahiert wird, dass diese Komponente bei der Implementation eines Prototypes oder MVP wiederverwendet werden kann.
+Der Vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 Stattfindet und diese Dokumentiert sie. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert, die Spezifikationen zu dieser DLL können im Anhang \ref{app:ch:dllspezifikation} gefunden werden.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=\linewidth]{TestApplikation}
+	\caption{Vereinfachte darstellung der Testapplikation ohne POJOs}
+	\label{fig:test_applikation_aufbau}
+\end{figure}
+ 
+\subsection{Erkenntnisse der Technischen Möglichkeiten}
+
+\subsection{Fazit der Validation}
