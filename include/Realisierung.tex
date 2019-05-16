@@ -1,6 +1,97 @@
 \chapter{Realisierung}
 
-\newpage
+\section{Technische Erkenntnisse}
+
+\subsection{Blöcke auf dem Chip}
+Durch Auslesen mehrer ausgelehenen Bücher und dem abgleich mit der erhaltenen Datenbank von der Speicherbibliothek, wurde herausgefunden, dass die für die BuchID relevanten Blöcke des RFID Tags die Blöcke 0-3 sind (siehe Tabelle \ref{tbl:ListeBloecke} und Abbildung \ref{fig:AusgeleseneBloeckeUndBarcode}. Weiter werden für die ID des Buches nur schreibbare Unicode-Charaktere verwendet und nicht der geschriebene Hex-Code.
+
+\begin{table}[htb]
+	\begin{tabularx}{\textwidth}{|l|l|l|X|}
+		\hline
+		\textbf{Blocknummer} & \textbf{Inhalt (Hex)} & \textbf{Inhalt (UTF8)} & \textbf{Beschreibung}\\
+		\hline
+		0 & 11010149 & I & Erster Block der BuchID \\
+		\hline
+		1 & 4c554d33 & LUM3 & Zweiter Block der BuchID \\
+		\hline
+		2 & 39303031 & 9001 & Dritter Block der BuchID \\
+		\hline
+		3 & 31333300 & 133 & Vierter Block der BuchID \\
+		\hline
+		4 & 00000081 &  & \\
+		\hline
+		5 & 3e43484c & >CHL & \\
+		\hline
+		6 & 55485349 & UHSI & \\
+		\hline
+		7 & 00000000 & - & Leerer Block \\
+		\hline
+		8 & 00000000 & - & Leerer Block \\
+		\hline
+		9 & 00000000 & - & Leerer Block \\
+		\hline
+		10 & 00000000 & - & Leerer Block \\
+		\hline
+		11 & 00000000 & - & Leerer Block \\
+		\hline
+		12 & 00000000 & - & Leerer Block \\
+		\hline
+		13 & 00000000 & - & Leerer Block \\
+		\hline
+		14 & 00000000 & - & Leerer Block \\
+		\hline
+		15 & 00000000 & - & Leerer Block \\
+		\hline
+		16 & 00000000 & - & Leerer Block \\
+		\hline
+		17 & 00000000 & - & Leerer Block \\
+		\hline
+		18 & 00000000 & - & Leerer Block \\
+		\hline
+		19 & 00000000 & - & Leerer Block \\
+		\hline
+		20 & 00000000 & - & Leerer Block \\
+		\hline
+		21 & 00000000 & - & Leerer Block \\
+		\hline
+		22 & 00000000 & - & Leerer Block \\
+		\hline
+		23 & 00000000 & - & Leerer Block \\
+		\hline
+		24 & 00000000 & - & Leerer Block \\
+		\hline
+		25 & 00000000 & - & Leerer Block \\
+		\hline
+		26 & 00000000 & - & Leerer Block \\
+		\hline
+		27 & 00000000 & - & Leerer Block \\
+		\hline
+	\end{tabularx}
+	\caption{Blöcke und deren Inhalt für Beispiel HF RFID}
+	\label{tbl:ListeBloecke}
+\end{table}
+
+\begin{figure}[p]
+	\centering
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\includegraphics[keepaspectratio,width=\linewidth]{RFID_Blocks-Hex}
+		\caption{Blöcke in Hex mit Smarphone ausgelesen}
+	\end{subfigure}
+	\begin{subfigure}[t]{.45\textwidth}
+		\centering
+		\includegraphics[keepaspectratio,width=\linewidth]{RFID_Blocks-Ascii}
+		\caption{Blöcke in ASCII mit Smarphone ausgelesen}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[keepaspectratio,width=\linewidth]{Barcode_BuchRFIDTag}
+		\caption{Zugehöriger Barcode}
+	\end{subfigure}
+	\caption{Ausgelesene Blöcke und Barcode des Buches}
+	\label{fig:AusgeleseneBloeckeUndBarcode}
+\end{figure}
+
 \section{Systemspezifikation}
 \label{sec:SysSpec}
 
