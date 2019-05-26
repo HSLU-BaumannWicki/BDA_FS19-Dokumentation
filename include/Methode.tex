@@ -28,29 +28,33 @@ Die agile Projektmethode zielt darauf ab in einem ungewissen und sich verändern
 \subsection{Projektanforderungen}
 Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werden ob es möglich ist bis zu 120 \gls{RFID} Tags in einem Behälter mit der Dimension 600x400x320mm zu identifizieren.
 
-\begin{itemize}
+\begin{legal}
 	\item Es sollen mindestens zwei Lösungskonzepte für eine als Auswahl der Machbarkeitsstudie entwickelt werden.
 	\item Die Lösungskonzepte müssen auf deren technische Realisierbarkeit untersucht werden.
 	\item Es muss mindestens ein entwickeltes Konzept für die Machbarkeitsstudie verwendet werden.
 	\item Die Machbarkeitsstudie muss eine Kostenrechnung für die Lösungsansätze beinhalten.
-	\item Es soll eine MVP entwickelt werden, welches vom Kunde verwendet werden kann.
-\end{itemize}
-
-\subsubsection{Anforderungen an Lösungsansätze, Proof of Concept und MVP}
-
-\begin{itemize}
-	\item Die Lösungskonzepte müssen mit dem Lagersystem kommunizieren können
-	\item Die Lösungskonzepte müssen die \gls{RFID} Tags in weniger als 1 Sekunden identifizieren können.
-	\item Die Lösungskonzepte müssen für das bestehende Hochregallager der Speicherbibliothek verwendbar sein.
+	\item Es soll eine Referenzimplementation entwickelt werden, welche vom Kunde verwendet werden kann.
 	
-	\item Das Proof of Concept muss technisch aufzeigen, wie viele \gls{RFID} Tags in einer Sekunde gelesen werden können.
-	\item Das Proof of Concept soll eine \gls{RFID} Lesezuverlässigkeit von 95\% aufweisen.
-	
-	\item Das MVP soll mit der Datenbank des Lagersystems kommunizieren können.
-	\item Das MVP soll in einem von Störfaktoren bereinigten Zustand die gleiche Anzahl \gls{RFID} Tags lesen können wie im Proof of Concept definiert.
-	\item Das MVP soll erkennen, wenn eine Box ein Exemplar enthält, welches nicht dieser Box zugehörig ist und dies als eine Unstimmigkeit markieren.
-	\item Das MVP soll in der Lage sein, dem Endbenutzer in beliebiger Form mitzuteilen, welcher Behälter eine Unstimmigkeit enthält.
-\end{itemize}
+	\item Anforderungen an Konzepte
+	\begin{legal}
+		\item Die Lösungskonzepte müssen mit dem Lagersystem kommunizieren können
+		\item Die Lösungskonzepte müssen die RFID Tags in weniger als 1 Sekunden identifizieren können.
+		\item Die Lösungskonzepte müssen für das bestehende Hochregallager der Speicherbibliothek verwendbar sein.
+	\end{legal}
+	\item Anforderungen an Proof of Concept
+	\begin{legal}
+		\item Das Proof of Concept muss technisch aufzeigen, wie viele RFID Tags in einer Sekunde identifiziert werden können.
+	\end{legal}
+	\item Anforderungen an Referenzimplementation
+	\begin{legal}
+		\item Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können.
+		\item Die Referenzimplementation ist in der Lage die Buch ID eines Exemplares über RFID auszulesen.
+		\item Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (eines, welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist.
+		\item Die Referenzimplementation soll jede erkannte Unstimmigkeit (Exemplar, welches nicht zu diesem Behälter gehört) in einem Logdokument persistieren.
+		\item Die Referenzimplementation soll in der Lage sein, dem Endbenutzer, in graphischer Form durch eine Konsolen-Ausgabe, mitzuteilen, welcher Behälter eine Unstimmigkeit enthält.
+		\item Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren.
+	\end{legal}
+\end{legal}
 
 \subsection{Einschränkungen und Abgrenzungen}
 Um die Konzepte sowie Versuche vor Ort zu validieren, wurde eine Referenzimplementation entwickelt. Diese zu einer Produktionsreife zu bringen, war explizit nicht Teil des Projektes. Zur Entwicklung der Referenzimplementation wurde ein Datenbankauszug verwendet, und nicht eine Schnittstelle zur real verfügbaren Datenbank. Die Entwicklung einer produktionsreifen Applikation wurde in der Planung des Folgeprojektes, im Rahmen der Machbarkeitsstudie, berücksichtigt. Auf die Form dieser Applikation wurde jedoch nicht genauer eingegangen, sodass diese Spezifikation im Ermessen des nächsten Projektteames liegt.
