@@ -99,6 +99,10 @@
 \newlist{todolist}{itemize}{1}
 \setlist[todolist]{label=$\square$}
 
+% Nested Enumeratelist credit to https://tex.stackexchange.com/a/54676
+\newlist{legal}{enumerate}{10}
+\setlist[legal]{label*=\arabic*.}
+
 %%% PATH DEFINITIONS %%%
 % Define the path were images are found
 \graphicspath{{./img/}{./appendix/}}
