@@ -6,32 +6,42 @@
 Hier werden die Anforderungen aufgelistet und ob diese erfüllt wurden oder nicht. Sofern diese nicht erfüllt wurden, wird für deren Erfüllung eine potenzielle Lösungsidee beschrieben. Für die Verifikation wurden die Testfälle überprüft.
 
 Legende:
-<<\checkmark >> = Anforderung erfüllt, <<\xmark>> = Anforderung nicht erfüllt, <<->> Wurde aus Zeitgründen nicht Implementiert.
+<<\checkmark >> = Anforderung erfüllt, <<\xmark>> = Anforderung nicht erfüllt, <<->> Wurde aus den beschriebenen Gründen nicht Implementiert.
 
-\begin{enumerate}
-	\item Es sollen mindestens zwei Lösungskonzepte für eine als Auswahl der Machbarkeitsstudie entwickelt werden.
-	\item Die Lösungskonzepte müssen auf deren technische Realisierbarkeit untersucht werden.
-	\item Es muss mindestens ein entwickeltes Konzept für die Machbarkeitsstudie verwendet werden.
-	\item Die Machbarkeitsstudie muss eine Kostenrechnung für die Lösungsansätze beinhalten.
-	\item Es soll eine Referenzimplementation entwickelt werden, welche vom Kunde verwendet werden kann.
-	
-	\item Anforderungen an Konzepte
-	\begin{enumerate}
-		\item Die Lösungskonzepte müssen mit dem Lagersystem kommunizieren können
-		\item Die Lösungskonzepte müssen die RFID Tags in weniger als 1 Sekunden identifizieren können.
-		\item Die Lösungskonzepte müssen für das bestehende Hochregallager der Speicherbibliothek verwendbar sein.
-	\end{enumerate}
-	\item Anforderungen an Proof of Concept
-	\begin{enumerate}
-		\item Das Proof of Concept muss technisch aufzeigen, wie viele RFID Tags in einer Sekunde identifiziert werden können.
-	\end{enumerate}
-	\item Anforderungen an Referenzimplementation
-	\begin{enumerate}
-		\item Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können.
-		\item Die Referenzimplementation ist in der Lage die Buch ID eines Exemplares über RFID auszulesen.
-		\item Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (eines, welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist.
-		\item Die Referenzimplementation soll jede Unstimmigkeit (Exemplar, welches nicht zu diesem Behälter gehört) in einem Logdokument persistieren.
-		\item Die Referenzimplementation soll in der Lage sein, dem Endbenutzer, in graphischer Form durch eine Konsolen-Ausgabe, mitzuteilen, welcher Behälter eine Unstimmigkeit enthält.
-		\item Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren.
-	\end{enumerate}
-\end{enumerate}
+
+\begin{tabularx}{\textwidth}{l l X}
+	\hline
+	\checkmark & 1   & Es sollen mindestens zwei Lösungskonzepte für eine als Auswahl der Machbarkeitsstudie entwickelt werden. \\
+	\hline
+	\checkmark & 2   & Die Lösungskonzepte müssen auf deren technische Realisierbarkeit untersucht werden. \\
+	\hline
+	\checkmark & 3   & Es muss mindestens ein entwickeltes Konzept für die Machbarkeitsstudie verwendet werden. \\
+	\hline
+	\checkmark & 4   & Die Machbarkeitsstudie muss eine Kostenrechnung für die Lösungsansätze beinhalten. \\
+	\hline
+	\checkmark & 5   & Es soll eine Referenzimplementation entwickelt werden, welche vom Kunde verwendet werden kann. \\
+	\hline
+	\checkmark & 6.1 & Die Lösungskonzepte müssen mit dem Lagersystem kommunizieren können \\
+	\hline
+	\checkmark & 6.2 & Die Lösungskonzepte müssen die RFID Tags in weniger als 1 Sekunden identifizieren können. \\
+	\hline
+	\checkmark & 6.3 & Die Lösungskonzepte müssen für das bestehende Hochregallager der Speicherbibliothek verwendbar sein. \\
+	\hline
+	\checkmark & 7.1 & Das Proof of Concept muss technisch aufzeigen, wie viele RFID Tags in einer Sekunde identifiziert werden können. \\
+	\hline
+	- & 8.1 & Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können. \\
+	\hline
+	\checkmark & 8.2 & Die Referenzimplementation ist in der Lage die Buch ID eines Exemplares über RFID auszulesen. \\
+	\hline
+	\checkmark & 8.3 & Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (eines, welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist. \\
+	\hline
+	\checkmark & 8.4 & Die Referenzimplementation soll jede erkannte Unstimmigkeit (Exemplar, welches nicht zu diesem Behälter gehört) in einem Logdokument persistieren. \\
+	\hline
+	\checkmark & 8.5 & Die Referenzimplementation soll in der Lage sein, dem Endbenutzer, in graphischer Form, durch eine Konsolen-Ausgabe, mitzuteilen, welcher Behälter eine Unstimmigkeit enthält. \\
+	\hline
+	? & 8.6 & Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren. \\
+	\hline
+\end{tabularx}
+
+\subsection{Begründung des nicht Umsetzens von 8.1}
+Während der Implementationsphase konnte festgestellt werden, dass die Einbindung der Oracle Datenbank mit grösserem Zeitaufwand verbunden ist, als dem Team noch zur Verfügung stand. Der Umstand, dass diese Anforderung in der Meilensteinsitzung 3 mit einer geringen Priorität versehen wurde (siehe Anhang \ref{app:sec:protokollMeilenstein3}), führte dazu, dass diese nicht Umgesetzt wurde.
