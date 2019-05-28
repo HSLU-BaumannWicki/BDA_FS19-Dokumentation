@@ -17,7 +17,7 @@ Für die Software der Lagerverwaltung soll die Herstellerfirma dieser Software d
 Die heutige RFID HF Technologie, welche bereits in der Speicherbibliothek zum Einsatz kommt ist auf ca. 1m Distanz beschränkt. Dies bedeutet, dass es nicht möglich ist alle Tags direkt vom Roboter aus zu lesen. Um alle Behälter auslesen zu können muss also der Behälter die Position eines anderen Behälters einnehmen, um den hinteren Behälter lesen zu können. Da es jedoch enorm zeitintensiv ist, jede vordere Kiste mit dem Lese-/Suchbehälter auszutauschen, sollen multiple Antennen zum Einsatzt kommen. Diese sollen so ausgerichtet werden, dass nicht nur der hintere Behälter sondern auch dessen Nachbarn ausgelesen werden können.
 Die Antennen sollen gemäss Abbildung \ref{fig:antennenPositionen} ausgerichtet werden.
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio, width=1\textwidth]{antennen_auf_behaelter}
 	\caption{Alle Antennenpositionen in einer Box für die Rechte Seite}
@@ -26,7 +26,7 @@ Die Antennen sollen gemäss Abbildung \ref{fig:antennenPositionen} ausgerichtet 
 
 In der Abbildung \ref{fig:distanzcalc} wird dargestellt, dass alle äusseren Behälter noch innerhalb der von HF RFID möglichen Lesedistanz von unter 1m liegen.
 
-\begin{figure}
+\begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio, width=1.2\textwidth]{berechnung_maximaler_distanz}
 	\caption{Berechnung der maximalen Distanzen (alle Angaben in mm)}
@@ -60,6 +60,7 @@ Der Stromverbrauch des RFID Lesers beträgt 35W bei 24V, das entspricht 1'458.32
 Der Stromverbrauch des Raspberry PI beträgt 4W bei 5V, das entspricht 800mAh.
 Daher wird für eine Betriebsdauer von einer Stunde ein Akku mit einer Kapazität von mindestens 2'258.32 mAh benötigt. Um eine Betriebsdauer von zehn Stunden zu gewährleisten, benötigt der Akku eine Gesamtkapazität von mindestens 22'583.32 mAh.
 Weiter hat er noch folgende Anforderungen.
+
 \begin{itemize}
 	\item USB Anschluss
 	\item CH Wechselstromanschluss
@@ -68,6 +69,7 @@ Weiter hat er noch folgende Anforderungen.
 
 \subsection{Übersicht der Hardwarekomponenten}
 Es sollen folgende Komponenten verwendet werden:
+
 \begin{itemize}
 	\item RFID Leser ID ISC.LR2500-A  (Feig)
 	\item RFID Antennen ID ISC.ANT800/600 (Feig)
