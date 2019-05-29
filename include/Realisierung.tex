@@ -1,4 +1,4 @@
-\chapter{Realisierung}
+\chapter{Entwicklung Referenzimplementation}
 
 \section{Technische Erkenntnisse}
 
@@ -120,19 +120,19 @@ Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreib
 \end{figure}
 
 \subsection{System}
+Die folgende Darstellung \ref{fig:System} zeigt die Systeme auf, auf welcher die Referenzimplementtion aufbaut.
+Da die Referenzimplementation in Kotlin geschrieben wurde, wird eine Java Virtual Machine vorausgesetzuz. Die notwendige Kommunikation zur RFID Hardware läuft über einen RFID Treiber, welcher nur als eine nicht verwaltete \gls{DLL} vom Hersteller zur Verfügung gestellt wird. Bei einer nicht verwalteten \gls{DLL} handelt es sich um eine Bibliothek, welche direkt in Assembler Code Compiliert wird und daher nur auf der dafür Compilierten Architektur/Betriebssystemumgebung ausführbar ist. Diese vom Hersteller gelieferte nicht verwalteten \gls{DLL} setzt daher voraus, dass sie auf einem Windows Betriebssystem im 32Bit Modus ausgeführt wird.
 \begin{figure}[htb]
 	\centering
-	\includegraphics[keepaspectratio,width=.6\linewidth]{System}
+	\includegraphics[keepaspectratio,width=.5\linewidth]{System}
 	\caption{Darstellung der Systeme, von welcher die Referenzimplementation abhängt}
 	\label{fig:System}
 \end{figure}
-\subsubsection{RFID Treiber}
-Der verwendete RFID Treiber der Firma Hyientech setzt voraus, dass dieser auf einem Windows System läuft, in einer 32Bit Umgebung.
 
 \subsection{Komponenten}
 \begin{figure}[htb]
 	\centering
-	\includegraphics[keepaspectratio,width=.7\linewidth]{Komponentendiagramm}
+	\includegraphics[keepaspectratio,width=.6\linewidth]{Komponentendiagramm}
 	\caption{Darstellung der Klassen in der Komponente UI}
 	\label{fig:Components}
 \end{figure}
@@ -190,9 +190,20 @@ In diesem Diagramm ist ersichtlich, dass für den Communication Driver ein Adapt
 \end{figure}
 
 \clearpage
-
-\subsection{Anforderungen der Software}
-
 \subsection{Umsetzung Programmierung}
+\subsubsection{Clean Code}
+Da gut lesbarer Code verständlicher und zeitnaher die Aufgaben des Codes widerspiegelt
+als ein Kommentar, wurde grösstenteils auf JavaDoc und weitere Kommentare verzichtet.
+Dies hatte zur Folge, dass bei der Erstellung einer Methode notwendigerweise ein selbst
+sprechender Name für diese sowie deren Parameter gewählt werden musste.
 
-\subsection{Testing}
+\subsubsection{Git Flow}
+Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit Git Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde (\cite{gitFeatureBranchWorkflow}). Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller in den Master Branch zusammengeführt werden darf. Um diese regel zu erzwingen, wurde der Master Branch auf github für alle Projekte entsprechend geschützt. Durch diesen schritt konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation respektive des Codes macht.
+Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprint-beginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden.
+
+\begin{figure}[htb]
+	\center
+	\includegraphics[width=\textwidth]{GitFeatureBranchWorkflow}
+	\caption{Branches unsere Dokumentation aus Sprint 6}
+	\label{fig:FeatureBranchWorkflow}
+\end{figure}
