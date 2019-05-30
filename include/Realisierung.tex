@@ -102,7 +102,7 @@ Durch Auslesen mehrerer ausgeliehenen Büchern und dem Abgleich mit der erhalten
 Hier werden die Anforderungen an die Referenzimplementation, welche bereits in Kapitel \ref{sub:Anforderungen} erwähnt wurden, nochmals aufgelistet.
 \begin{legal}
 	\item Die Referenzimplementation ist in der Lage die Buch ID eines Exemplares über RFID auszulesen.
-	\item Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (eines, welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist.
+	\item Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist.
 	\item Die Referenzimplementation soll jede erkannte Unstimmigkeit (Exemplar, welches nicht zu diesem Behälter gehört) in einem Logdokument persistieren.
 	\item Die Referenzimplementation soll in der Lage sein, dem Endbenutzer, in graphischer Form durch eine Konsolen-Ausgabe, mitzuteilen, welcher Behälter eine Unstimmigkeit enthält.
 	\item Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren.
@@ -111,7 +111,7 @@ Hier werden die Anforderungen an die Referenzimplementation, welche bereits in K
 
 \subsection{Kontext}
 
-Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreibt die Interaktion der Referenzimplementation mit allen Umsystemen. Diese Umsysteme beinhalten den Benutzer, welche von der Referenzimplementation Informationen erhält, ein weiteres Umsystem beinhaltet ein Datenbankexport Dokument, welches dem System die Informationen zu einem Exemplar liefert. Das Letzte Umsystem ist die der RFID Reader, welches dar Referenzimplementation die Informationen eines gefundenen RFID Tags liefert.
+Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreibt die Interaktion der Referenzimplementation mit allen Umsystemen. Diese Umsysteme bestehen aus dem Benutzer, welcher von der Referenzimplementation Informationen erhält, einem Datenbankexport Dokument, welches dem System die Informationen zu einem Exemplar liefert und dem RFID Reader, welcher der Referenzimplementation die Informationen eines gefundenen RFID Tags liefert.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.9\linewidth]{Kontextdiagramm}
@@ -120,8 +120,8 @@ Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreib
 \end{figure}
 
 \subsection{System}
-Die folgende Darstellung \ref{fig:System} zeigt die Systeme auf, auf welcher die Referenzimplementtion aufbaut.
-Da die Referenzimplementation in Kotlin geschrieben wurde, wird eine Java Virtual Machine vorausgesetzuz. Die notwendige Kommunikation zur RFID Hardware läuft über einen RFID Treiber, welcher nur als eine nicht verwaltete \gls{DLL} vom Hersteller zur Verfügung gestellt wird. Bei einer nicht verwalteten \gls{DLL} handelt es sich um eine Bibliothek, welche direkt in Assembler Code Compiliert wird und daher nur auf der dafür Compilierten Architektur/Betriebssystemumgebung ausführbar ist. Diese vom Hersteller gelieferte nicht verwalteten \gls{DLL} setzt daher voraus, dass sie auf einem Windows Betriebssystem im 32Bit Modus ausgeführt wird.
+Die folgende Darstellung \ref{fig:System} zeigt die Systeme auf, auf welcher die Referenzimplementation aufbaut.
+Da die Referenzimplementation in Kotlin geschrieben wurde, wird eine Java Virtual Machine vorausgesetzt. Die notwendige Kommunikation zur RFID Hardware läuft über einen RFID Treiber, welcher nur als eine nicht verwaltete \gls{DLL} vom Hersteller zur Verfügung gestellt wird. Bei einer nicht verwalteten \gls{DLL} handelt es sich um eine Bibliothek, welche direkt zu Assembler Code kompiliert wird und daher nur auf der dafür kompilierten Architektur/Betriebssystemumgebung ausführbar ist. Diese, vom Hersteller gelieferte, nicht verwalteten \gls{DLL}, setzt voraus, dass sie auf einem Windows Betriebssystem im 32Bit Modus ausgeführt wird.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.5\linewidth]{System}
@@ -130,7 +130,7 @@ Da die Referenzimplementation in Kotlin geschrieben wurde, wird eine Java Virtua
 \end{figure}
 
 \subsection{Komponenten}
-Im folgenden Diagramm \ref{fig:Components} sind die entwickelten Softwarekomponenten abgebildet. Sie zeigt in vereinfachter Form, dass zwischen den Hauptkomponenten UI, MisplacedTagIdentifier und TagReader keine starke Kopplung vorhanden ist.
+Im folgenden Diagramm \ref{fig:Components} sind die entwickelten Softwarekomponenten abgebildet. Es zeigt in vereinfachter Form, dass zwischen den Hauptkomponenten UI, MisplacedTagIdentifier und TagReader keine starke Kopplung vorhanden ist.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.6\linewidth]{Komponentendiagramm}
@@ -161,7 +161,7 @@ In diesem Diagramm ist ersichtlich, dass es nur eine Datenklasse in dieser Kompo
 \clearpage
 \subsubsection{Misplaced Tag Identifier}
 In der Abbildung \ref{fig:ClassMisplacedTagIdentifier} ist das Klassendiagramm der Komponente Misplaced Tag Identifier zu sehen.
-In diesem Diagramm ist ersichtlich, dass der Controller die Position des Bindeglieds zwischen dem Logger, des Exemplar-Informationslieferanten und der Deplatzierungserkennung einnimmt.
+In diesem Diagramm ist ersichtlich, dass der MisplacedTagIdentifyController die Rolle des Bindeglieds zwischen dem Logger (LogPersistor), dem Exemplar-Informationslieferanten (LibraryCopySupplier) und der Deplatzierungserkennung (MisplacedIdentifier) einnimmt.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=\linewidth]{ClassdiagrammMisplacedTagIdentifier}
@@ -181,7 +181,7 @@ In diesem Diagramm ist ersichtlich, dass es nur eine Datenklasse in dieser Kompo
 
 \subsubsection{Tag Reader}
 In der Abbildung \ref{fig:ClassTagReader} ist das Klassendiagramm der Komponente Tag Reader zu sehen.
-In diesem Diagramm ist ersichtlich, dass für den Communication Driver ein Adapter Pattern verwendet wurde. Dies ermöglichte, dass bereits vor der Hardwarelieferung mit der Implementation begonnen werden konnte. 
+In diesem Diagramm ist ersichtlich, dass für den CommunicationDriver das Adapter Pattern verwendet wurde. Dies ermöglichte, dass bereits vor der Hardwarelieferung mit der Implementation begonnen werden konnte. 
 
 \begin{figure}[htb]
 	\centering
@@ -192,22 +192,22 @@ In diesem Diagramm ist ersichtlich, dass für den Communication Driver ein Adapt
 
 
 \subsection{Ablauf Erkennung eines Tags}
-Mit folgenden Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf dargelegt, welcher die Referenzimplementation durchläuft, sobald ein Tag Identifiziert werden konnte. Der Wechsel von einer Komponenten zur nächsten wird durch ein Benachrichtigungssystem erzeugt, 
+Mit folgenden Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf dargelegt, welcher die Referenzimplementation durchläuft, sobald ein Tag Identifiziert werden konnte. Der Wechsel von einer Komponenten zur nächsten wird durch ein Benachrichtigungssystem ermöglicht. Als Benachrichtigungssystem wurde die ConcurrentLinkedQueue, welche mit der Standard Bibliothek von Kotlin zur Verfügung gestellt wird, eingesetzt. 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.8\linewidth]{AblaufdiagrammTagErkennung}
-	\caption{Ablaufdiagramm zur Tag Erkennung mit Darstellung welcher Ablauf in welcher Komponenten erfolgt}
+	\caption{Ablaufdiagramm zur Tag-Erkennung mit Darstellung, welcher Ablauf in welcher Komponenten erfolgt}
 	\label{fig:AblaufdiagrammTagErkennung}
 \end{figure}
 
 \clearpage
 \subsection{Umsetzung Programmierung}
 \subsubsection{Clean Code}
-Ein gut lesbarer Code ist verständlicher als manch veralteter nicht ganz akkurater Kommentar. Dieser in der Welt doch anzutreffenden zustand haben wir entgegengesetzt, indem wir auf JavaDoc, sowie nicht notwendige Kommentare verzichtet haben. Dieser Entscheid hatte Folgen, wie dass eine sprechende Namensgebung für alle zu benennende Elemente im Code verwendet wurden, oder starke Verschachtelungsebene in einzelne Funktionen unterteilt wurden oder Klassen eher Klein gehalten wurden (\cite{martin2009clean}).
+Gut lesbarer Code ist verständlicher als veralteter, nicht akkurater Kommentar. Diesem Zustand haben wir entgegengesetzt, indem wir auf JavaDoc, sowie nicht notwendige Kommentare verzichtet haben. Dieser Entscheid hatte zur Folge, dass eine sprechende Namensgebung für alle zu benennende Elemente im Code verwendet wurden. Weiter wurden starke Verschachtelungsebene in einzelne Funktionen unterteilt, sowie Klassen eher klein gehalten (\cite{martin2009clean}).
 
-\subsubsection{Git Flow}
-Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit Git Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde. Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller in den Master Branch zusammengeführt werden darf. Um diese regel zu erzwingen, wurde der Master Branch auf GitHub für alle Projekte entsprechend geschützt. Durch diesen schritt konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation respektive des Codes macht.
-Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprint-beginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden(\cite{BaumannWicki2018}).
+\subsubsection{Feature Branch Workflow}
+Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit dem Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde. Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller in den Master Branch zusammengeführt werden darf. Um diese Regel zu erzwingen, wurde der Master Branch auf GitHub für alle Projekte entsprechend geschützt. Durch diesen Schritt, konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation respektive des Codes durchführen muss.
+Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprintbeginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden(\cite{BaumannWicki2018}).
 
 \begin{figure}[htb]
 	\center
