@@ -7,7 +7,11 @@ In diesem Kapitel wird evaluiert, ob das Projekt und dessen produzierte Artefakt
 Hier werden die Anforderungen aufgelistet und ob diese erfüllt wurden oder nicht. Sofern diese nicht erfüllt wurden, wird für deren Erfüllung eine potenzielle Lösungsidee beschrieben. Für die Verifikation wurden die Testfälle überprüft.
 
 Legende:
-<<\checkmark >> = Anforderung erfüllt, <<\xmark>> = Anforderung nicht erfüllt, <<->> Wurde aus den beschriebenen Gründen nicht Implementiert.
+\begin{itemize}[label={}, noitemsep]
+	\item <<\checkmark >> = Anforderung erfüllt
+	\item <<\xmark>> = Anforderung nicht erfüllt
+	\item <<\notmark>> Wurde aus den beschriebenen Gründen nicht Implementiert.
+\end{itemize}
 
 
 \begin{tabularx}{\textwidth}{l l X}
@@ -40,11 +44,11 @@ Legende:
 	\hline
 	? & 8.5 & Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren. \\
 	\hline
-	- & 8.6 & Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können. \\
+	\notmark & 8.6 & Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können. \\
 	\hline
 \end{tabularx}
 
-\subsection{Begründung des nicht Umsetzens von 8.1}
+\subsection{Begründung des Nichtumsetzens von 8.6}
 Während der Implementationsphase konnte festgestellt werden, dass die Einbindung der Oracle Datenbank mit grösserem Zeitaufwand verbunden ist, als dem Team noch zur Verfügung stand. Der Umstand, dass diese Anforderung in der Meilensteinsitzung 3 mit einer geringen Priorität versehen wurde (siehe Anhang \ref{app:sec:protokollMeilenstein3}), führte dazu, dass diese nicht umgesetzt wurde.
 
 \section{Technische Aspekte}
