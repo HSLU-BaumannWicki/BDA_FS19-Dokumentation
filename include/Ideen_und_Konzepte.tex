@@ -73,7 +73,8 @@ Die genauen Spezifikationen der Hardware können im Anhang \ref{app:ch:hardwares
 Da zudem keine weiteren Hersteller sich bereiterklärten für eine Leihgabe, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
 
 Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vorrichtung befestigt, anschliessend wurde das Tag an einer weiteren Vorrichtung befestigt und in einem gemäss den Testversuchsbeschreibungen definierten Position platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
-\begin{figure}[h!]
+
+\begin{figure}[htb]
 	\begin{subfigure}{.5\linewidth}
 		\includegraphics[keepaspectratio,height=4cm]{Versuch1MaximaleDistanz}
 		\caption{Versuches Nummer 1 mit einem Abstand von 60cm}
@@ -97,7 +98,7 @@ Bei der Implementation der Software wurde beachtet, dass die Kommunikation mit d
 
 Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 stattfindet und diese Schnittstelle vom Hersteller dokumentiert sei. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert. Die genauen Spezifikationen zu dieser DLL können im Anhang \ref{app:ch:dllspezifikation} gefunden werden.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=\linewidth]{TestApplikation}
 	\caption{Vereinfachte Darstellung der Testapplikation ohne POJOs}
