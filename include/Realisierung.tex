@@ -130,6 +130,7 @@ Da die Referenzimplementation in Kotlin geschrieben wurde, wird eine Java Virtua
 \end{figure}
 
 \subsection{Komponenten}
+Im Folgenden Diagramm \ref{fig:Components} sind die entwickelten Softwarekomponenten abgebildet. Sie zeigt in vereinfachter Form, dass zwischen den Hauptkomponenten UI, MisplacedTagIdentifier und TagReader keine starke Kopplung vorhanden ist.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.6\linewidth]{Komponentendiagramm}
@@ -189,17 +190,24 @@ In diesem Diagramm ist ersichtlich, dass für den Communication Driver ein Adapt
 	\label{fig:ClassTagReader}
 \end{figure}
 
+
+\subsection{Ablauf Erkennung eines Tags}
+Mit folgenden Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf dargelegt, welcher die Referenzimplementation durchläuft, sobald ein Tag Identifiziert werden konnte. Der Wechsel von einer Komponenten zur nächsten wird durch ein Benachrichtungungssystem erzeugt, 
+\begin{figure}[htb]
+	\centering
+	\includegraphics[keepaspectratio,width=.8\linewidth]{AblaufdiagrammTagErkennung}
+	\caption{Ablaufdiagramm zur Tag Erkennung mit Darstellung welcher Ablauf in welcher Komponenten erfolgt}
+	\label{fig:AblaufdiagrammTagErkennung}
+\end{figure}
+
 \clearpage
 \subsection{Umsetzung Programmierung}
 \subsubsection{Clean Code}
-Da gut lesbarer Code verständlicher und zeitnaher die Aufgaben des Codes widerspiegelt
-als ein Kommentar, wurde grösstenteils auf JavaDoc und weitere Kommentare verzichtet.
-Dies hatte zur Folge, dass bei der Erstellung einer Methode notwendigerweise ein selbst
-sprechender Name für diese sowie deren Parameter gewählt werden musste.
+Ein gut lesbarer Code ist verständlicher als manch veralteter nicht ganz akkurater Kommentar. Dieser in der Welt doch anzutreffenden zustand haben wir entgegengesetzt, indem wir auf JavaDoc, sowie nicht notwendige Kommentare verzichtet haben. Dieser Entscheid hatte Folgen, wie dass eine sprechende Namensgebung für alle zu benennende Elemente im Code verwendet wurden, oder starke Verschachtelungsebene in einzelne Funktionen unterteilt wurden oder Klassen eher Klein gehalten wurden (\cite{martin2009clean}).
 
 \subsubsection{Git Flow}
-Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit Git Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde (\cite{gitFeatureBranchWorkflow}). Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller in den Master Branch zusammengeführt werden darf. Um diese regel zu erzwingen, wurde der Master Branch auf github für alle Projekte entsprechend geschützt. Durch diesen schritt konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation respektive des Codes macht.
-Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprint-beginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden.
+Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit Git Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde. Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller in den Master Branch zusammengeführt werden darf. Um diese regel zu erzwingen, wurde der Master Branch auf GitHub für alle Projekte entsprechend geschützt. Durch diesen schritt konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation respektive des Codes macht.
+Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprint-beginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden(\cite{BaumannWicki2018}).
 
 \begin{figure}[htb]
 	\center
