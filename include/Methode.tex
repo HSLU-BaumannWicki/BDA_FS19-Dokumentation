@@ -24,9 +24,10 @@ Die agile Projektmethode zielt darauf ab in einem ungewissen und sich verändern
 
 \subsection{Ermittlung offener Projektrahmenbedingungen}
 \label{ch:evaluation}
-
 \subsection{Projektanforderungen}
+\label{sub:Anforderungen}
 Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werden ob es möglich ist bis zu 120 \gls{RFID} Tags in einem Behälter mit der Dimension 600x400x320mm zu identifizieren.
+Um dieses Ziel zu erreichen wurden verschiedenen Anforderungen ermittelt.
 
 \begin{legal}
 	\item Es sollen mindestens zwei Lösungskonzepte für eine als Auswahl der Machbarkeitsstudie entwickelt werden.
@@ -47,17 +48,17 @@ Mittels einer Machbarkeitsstudie und einem Proof of Concept soll untersucht werd
 	\end{legal}
 	\item Anforderungen an Referenzimplementation
 	\begin{legal}
-		\item Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können.
 		\item Die Referenzimplementation ist in der Lage die Buch ID eines Exemplares über RFID auszulesen.
 		\item Die Referenzimplementation soll erkennen, wenn eine Box ein Exemplar (eines, welches mit RFID ausgestattet ist und technisch auch Lesbar ist) enthält, welches nicht dieser Box zugehörig ist.
 		\item Die Referenzimplementation soll jede erkannte Unstimmigkeit (Exemplar, welches nicht zu diesem Behälter gehört) in einem Logdokument persistieren.
 		\item Die Referenzimplementation soll in der Lage sein, dem Endbenutzer, in graphischer Form durch eine Konsolen-Ausgabe, mitzuteilen, welcher Behälter eine Unstimmigkeit enthält.
 		\item Die Referenzimplementation soll die unter Laborbedingungen erhaltenen Resultate unter Realbedingungen verifizieren.
+		\item Die Referenzimplementation soll mit einer Oracle Datenbank kommunizieren können.
 	\end{legal}
 \end{legal}
 
 \subsection{Einschränkungen und Abgrenzungen}
-Um die Konzepte sowie Versuche vor Ort zu validieren, wurde eine Referenzimplementation entwickelt. Diese zu einer Produktionsreife zu bringen, war explizit nicht Teil des Projektes. Zur Entwicklung der Referenzimplementation wurde ein Datenbankauszug verwendet, und nicht eine Schnittstelle zur real verfügbaren Datenbank. Die Entwicklung einer produktionsreifen Applikation wurde in der Planung des Folgeprojektes, im Rahmen der Machbarkeitsstudie, berücksichtigt. Auf die Form dieser Applikation wurde jedoch nicht genauer eingegangen, sodass diese Spezifikation im Ermessen des nächsten Projektteames liegt.
+Um die Konzepte sowie Versuche vor Ort zu validieren, wurde eine Referenzimplementation entwickelt. Diese zu einer Produktionsreife zu bringen, war explizit nicht Teil des Projektes. Zur Entwicklung der Referenzimplementation wurde ein Datenbankauszug verwendet und nicht eine Schnittstelle zur real verfügbaren Datenbank. Die Entwicklung einer produktionsreifen Applikation wurde in der Planung des Folgeprojektes, im Rahmen der Machbarkeitsstudie, berücksichtigt. Auf die Form dieser Applikation wurde jedoch nicht genauer eingegangen, sodass diese Spezifikation im Ermessen des nächsten Projektteames liegt.
 
 Einschränkungen ergaben sich durch das beschränkte Budget, wodurch auf einen alternativen Hersteller ausgewichen werden musste, welcher eine kleinere Reichweite als gewünscht lieferte. Die Resultate können daher auch nur explizit für diese spezifische Hardware gewährleistet werden.
 Weiter bestand Teamintern ein kleiner Wissensstand über die Durchführung einer Machbarkeitsstudie zu Beginn des Projektes, welcher im Laufe des Projektes zuerst erarbeitet werden musste.
