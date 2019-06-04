@@ -1,5 +1,5 @@
 \Author{Pascal Baumann\sep Dane Wicki}
-\Title{Suche von mit RFID ausgerüsteten Einzelexemplaren in vollautomatischem Behälter Hochregallager}
+\Title{Suche von mit RFID ausgerüsteten Einzelexemplaren im vollautomatischen Behälter Hochregallager}
 \Subject{Im Hochregallager der Speicherbibliothek werden momentan bis zu 110'000 Behältern mit verschiedenen Exemplaren, von welchen viele mit RFID Tags ausgestattet sind, gelagert. Die Behälter werden manuell von Menschen befüllt und entleert, und anschliessend voll autonom an einen Lagerplatz gefahren. Zeitweise können auch gewisse Exemplare wieder aus den Behältern entnommen werden, um dieses Exemplar zu Lesen, Scannen, der teilnehmenden Bibliotheken zurückzusenden, oder aus dem Lagerbestand zu entfernen. Der Vorgang des Lagern und Entnehmens birgt die Gefahr, dass eine Person aus Versehen ein Exemplar in einen falschen Behälter einsortiert. Dies führt zu dem Umstand, dass das Exemplar nur sehr umständlich wiedergefunden werden kann.}
 \Keywords{RFID\sep Logistik\sep Machbarkeitsstudie\sep Suchalgorithmus}
 \Copyright{2019(C) Pascal Baumann, Dane Wicki}
