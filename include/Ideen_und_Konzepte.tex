@@ -1,21 +1,24 @@
 \chapter{Ideen und Konzepte}
 
 \section{Grundidee}
-Die Ausgangslage für beide Konzepte waren, wie in Kapitel \ref{ch:Einleitung} beschrieben, dass unter Umständen Exemplare deplatziert werden können. Da der Kunde keine Nachrüstung seines Bestandes erwünschte, wurden viele Ideen in der Brainstormingphase schon verworfen und man einigte sich au Methoden welche mit RFID arbeiteten. Dabei sollte ein Konzept die Idee des Kunden, Exemplare im Hochregallager ausfindig zu machen, aufgreifen und in ein vollwertiges Konzept ausarbeiten. Das weitere Konzept sollte eine alternative Möglichkeit, die der Verhinderung der Einlagerung eines deplatzierten Exemplars, untersuchen und ausarbeiten.
+Für die Konzepte, welche im Kapitel \ref{ch:konzeptEins} und \ref{ch:konzeptZwei} beschrieben sind, ist die Ausgangslage die, dass die Gefahr besteht, dass Exemplare im Hochregallager in falsche Behälter deplatziert werden. Weiter ist vonseiten des Kunden gewünscht, dass die Exemplare nicht nachgerüstet werden müssen (siehe Protokoll \ref{app:sec:protokollKickoff}). Aus diesem Grund gilt für beide Konzepte, dass lediglich die vorhandenen HF RFID Tags zur Verwendung stehen und keine weiteren alternative Ideen verwendet werden können.
 
-Nachdem beide Konzepte ausgearbeitet waren, sollten diese in den Versuchen vorgängig auf ihre Machbarkeit untersucht werden, und danach in einer Machbarkeitsstudie im Detail geprüft werden.
+Das in Kapitel \ref{ch:konzeptEins} vorgestellte Konzept hat zum Ziel, dass bereits deplatzierte Exemplare im Hochregallager wiedergefunden werden können. Dabei wird dargelegt, wie vorgegangen werden soll, um die Suche möglichst effizient durchzuführen. Hierzu wird berechnet, wie lange eine Suche mit nur einer Antenne dauert und wie diese Suche optimiert werden kann, indem mehrere Antennen eingesetzt werden.
 
-\chapter{Erstes Lösungskonzept}
+Das in Kapitel \ref{ch:konzeptZwei} vorgestellt Konzept hat zum Ziel, dass Exemplare, welche vom Personal in einen falschen Behälter platziert werden, vor der Einlagerung erkannt und der Behälter im System entsprechend markiert werden. In diesem Konzept werden verschiedene Möglichkeiten dargelegt, wie eine solche Erkennung mit der Hilfe einer neuen Scanstation erstellt werden kann. Es wird schliesslich eine mögliche Lösung empfohlen.
 
+\chapter{Konzept Eins: Suche}
+\label{ch:konzeptEins}
 \input{include/Erstes_Konzept}
 
-\chapter{Zweites Lösungskonzept}
+\chapter{Konzept Zwei: Prozessoptimierung}
+\label{ch:konzeptZwei}
 
 \input{include/Zweites_Konzept}
 
-\section{Validation der Konzepte}
+\chapter{Validation der Konzepte}
 
-\subsection{Unbekannte im Bereich der Technischen Möglichkeiten}
+\section{Unbekannte im Bereich der Technischen Möglichkeiten}
 Beide beschriebenen Konzepte setzten spezifische technische Möglichkeiten voraus, damit diese umgesetzt werden können. Für die Validation dieser technischen Möglichkeiten wurden verschiedene Versuche erstellt, welche mit einem zur Verfügung stehenden RFID Lesegerät durchgeführt werden sollen.
 
 Für das Konzept zur Auffindung eines deplatzierten Exemplars im Hochregallager galt es folgende technische Möglichkeiten abzuklären:
@@ -59,7 +62,7 @@ Aus diesen abzuklärenden technischen Möglichkeiten wurden schliesslich folgend
 
 Die genaue Versuchsanordnung ist im Anhang \ref{app:ch:versuche} zu finden.
 
-\subsection{Vorgehen zur Abklärung der Technischen Möglichkeiten}
+\section{Vorgehen zur Abklärung der Technischen Möglichkeiten}
 
 Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte bei der Hardwarebeschaffung keine Inländische Vertreiber verwendet werden. Es wurde schliesslich der Hardwarehersteller Hyientech aus China für die Beschaffung der Hardware ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
 
@@ -91,7 +94,7 @@ Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vor
 \end{figure}
 
 
-\subsubsection{Software}
+\subsection{Software}
 Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde für die Versuche eine eigene Applikation geschrieben, welche für die Protokolle der Resultate verantwortlich ist.
 
 Bei der Implementation der Software wurde beachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementation eines Prototyps oder MVP wiederverwendet werden kann.
@@ -105,7 +108,7 @@ Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikati
 	\label{fig:test_applikation_aufbau}
 \end{figure}
  
-\subsection{Erkenntnisse der Technischen Möglichkeiten}
+\section{Erkenntnisse der Technischen Möglichkeiten}
 Es konnte festgestellt werden, dass die Reichweite der Antenne den Herstellerangaben entsprechen, sofern der Tag parallel zur Antenne ausgerichtet ist. Ist der Tag in einer Achse gedreht, so funktioniert die Auslesung ab einem Auslenkungswinkel von 60\SIUnitSymbolDegree\ nicht mehr. Weiter konnte die Lesegeschwindigkeit für 15 TagIDs ermittelt werden, welche bei rund 350ms liegt. Es wurde daher geschlussfolgert, dass es machbar ist 40 TagIDs pro Sekunde zu lesen.
 Bei einer optimalen Ausrichtung konnte die seitlich Reichweite bei einer Distanz von 50cm zur Antenne auf 25cm, respektive bei 60cm zur Antenne auf 12.5cm ermittelt werden. Wie schon beschrieben, können maximal ausgelenkte Tags (90\SIUnitSymbolDegree) in der Flucht nicht gelesen werden. In den Versuchen wurde ermittelt, dass der Tag, bis zu einer Distanz von 30cm zur Antenne, gelesen werden kann, sofern sich dieser nicht direkt in der Flucht befindet (siehe Abbildung \ref{fig:Seitlich90}).
 
@@ -118,5 +121,5 @@ Bei einer optimalen Ausrichtung konnte die seitlich Reichweite bei einer Distanz
 
 Weiter konnte in den Versuchen herausgefunden werden, dass ein Lesen durch ein Metall, sei dies Aluminium oder Stahl, unmöglich ist. Keiner der Tags hinter einer Metallplatte, im Minimum 0.75mm dick, konnte gelesen werden. Es konnte jedoch keine Abschirmung durch Bücher, Plastikbehälter, WLAN oder menschliche Hände festgestellt werden. Die Interferenz der Antennen konnte insofern nicht getestet werden, dass die Antennen nicht parallel betrieben werden konnten. Bei gestapelten Tags konnte eine starke Interferenz festgestellt werden. Um alle Tags erfolgreich auslesen zu können, muss ein Mindestabstand von 1.5cm in horizontaler und 3cm in vertikaler Richtung eingehalten werden.
 
-\subsection{Fazit der Validation}
+\section{Fazit der Validation}
 Das Konzept zur Auffindung eines deplazirten Exemplares im Hochregallager musste nach den gewonnen Erkenntnissen verworfen werden und wurde daher für die Machbarkeitsstudie nicht beachtet. Die Problematik der Auslenkung führte zu einer Anpassung in der Positionierung der Antennen im Konzeptdesign des Konzepts zur Verhinderung des Deplatzieren eines Exemplars vor Einlagerung in das Hochregallager, aber das Konzept wurde nach der Validiation der technischen Möglichkeiten immer noch als machbar eingestuft.
