@@ -3,7 +3,7 @@
 \section{Technische Erkenntnisse}
 
 \subsection{Blöcke auf dem Chip}
-Durch Auslesen mehrerer ausgeliehenen Büchern und dem Abgleich mit der erhaltenen Datenbank von der Speicherbibliothek, wurde herausgefunden, dass die Blöcke null bis drei die für die Buch-ID relevanten Informationen enthalten (siehe Tabelle \ref{tbl:ListeBloecke} und Abbildung \ref{fig:AusgeleseneBloeckeUndBarcode}). Weiter werden für die ID des Buches nur darstellbare Unicode-Charaktere verwendet und nicht der geschriebene Hex-Code.
+Durch das Auslesen mehrerer ausgeliehener Bücher und dem Abgleich mit der erhaltenen Datenbank der Speicherbibliothek, wurde herausgefunden, dass die Blöcke null bis drei die für die Buch-ID relevanten Informationen enthalten (siehe Tabelle \ref{tbl:ListeBloecke} und Abbildung \ref{fig:AusgeleseneBloeckeUndBarcode}). Weiter werden für die ID des Buches nur darstellbare Unicode-Charaktere verwendet und nicht der geschriebene Hex-Code.
 
 \begin{table}[htb]
 	\begin{tabularx}{\textwidth}{|l|l|l|X|}
@@ -110,8 +110,7 @@ Hier werden die Anforderungen an die Referenzimplementation, welche bereits in K
 \end{legal}
 
 \subsection{Kontext}
-
-Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreibt die Interaktion der Referenzimplementation mit allen Umsystemen. Diese Umsysteme bestehen aus dem Benutzer, welcher von der Referenzimplementation Informationen erhält, einem Datenbankexport Dokument, welches dem System die Informationen zu einem Exemplar liefert und dem RFID Reader, welcher der Referenzimplementation die Informationen eines gefundenen RFID Tags liefert.
+Das nachfolgende Kontextdiagramm (Abbildung \ref{fig:Kontextdiagramm}) beschreibt die Interaktion der Referenzimplementation mit allen Umsystemen. Diese Umsysteme bestehen aus dem Benutzer, welcher von der Referenzimplementation Informationen erhält, einem Datenbankexport-Dokument, welches dem System die Informationen zu einem Exemplar liefert und dem RFID Reader, welcher der Referenzimplementation die Informationen eines gefundenen RFID Tags liefert.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.9\linewidth]{Kontextdiagramm}
@@ -161,7 +160,7 @@ In diesem Diagramm ist ersichtlich, dass es nur eine Datenklasse in dieser Kompo
 \clearpage
 \subsubsection{Misplaced Tag Identifier}
 In der Abbildung \ref{fig:ClassMisplacedTagIdentifier} ist das Klassendiagramm der Komponente Misplaced Tag Identifier zu sehen.
-In diesem Diagramm ist ersichtlich, dass der MisplacedTagIdentifyController die Rolle des Bindeglieds zwischen dem Logger (LogPersistor), dem Exemplar-Informationslieferanten (LibraryCopySupplier) und der Deplatzierungserkennung (MisplacedIdentifier) einnimmt.
+Es ist ersichtlich, dass der MisplacedTagIdentifyController die Rolle des Bindeglieds zwischen dem Logger (LogPersistor), dem Exemplar-Informationslieferanten (LibraryCopySupplier) und der Deplatzierungserkennung (MisplacedIdentifier) einnimmt.
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=\linewidth]{ClassdiagrammMisplacedTagIdentifier}
@@ -192,7 +191,7 @@ In diesem Diagramm ist ersichtlich, dass für den CommunicationDriver das Adapte
 
 
 \subsection{Ablauf Erkennung eines Tags}
-Mit folgenden Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf dargelegt, welcher die Referenzimplementation durchläuft, sobald ein Tag Identifiziert werden konnte. Der Wechsel von einer Komponenten zur nächsten wird durch ein Benachrichtigungssystem ermöglicht. Als Benachrichtigungssystem wurde die ConcurrentLinkedQueue, welche mit der Standard Bibliothek von Kotlin zur Verfügung gestellt wird, eingesetzt. 
+Mit folgendem Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf dargelegt, welcher die Referenzimplementation durchläuft, sobald ein Tag identifiziert werden konnte. Der Wechsel von einer Komponente zur nächsten wird durch ein Benachrichtigungssystem ermöglicht. Als Benachrichtigungssystem wurde die ConcurrentLinkedQueue, welche mit der Standard Bibliothek von Kotlin zur Verfügung gestellt wird, eingesetzt. 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[keepaspectratio,width=.8\linewidth]{AblaufdiagrammTagErkennung}
@@ -203,11 +202,11 @@ Mit folgenden Diagramm \ref{fig:AblaufdiagrammTagErkennung} wird der Ablauf darg
 \clearpage
 \subsection{Umsetzung Programmierung}
 \subsubsection{Clean Code}
-Gut lesbarer Code ist verständlicher als veraltete, nicht akkurate Kommentare. Diesem Zustand haben wir entgegengesetzt, indem wir auf JavaDoc, sowie nicht notwendige Kommentare verzichtet haben. Dieser Entscheid hatte zur Folge, dass eine sprechende Namensgebung für alle zu benennende Elemente im Code verwendet wurden. Weiter wurden starke Verschachtelungsebene in einzelne Funktionen unterteilt, sowie Klassen eher klein gehalten (\cite{martin2009clean}).
+Gut lesbarer Code ist verständlicher als veraltete, nicht akkurate Kommentare. Diesem Zustand haben wir entgegengesetzt, indem wir auf JavaDoc, sowie nicht notwendige Kommentare verzichtet haben. Dieser Entscheid hatte zur Folge, dass eine sprechende Namensgebung für alle zu benennende Elemente im Code verwendet wurde. Weiter wurden starke Verschachtelungsebene in einzelne Funktionen unterteilt, sowie Klassen eher klein gehalten (\cite{martin2009clean}).
 
 \subsubsection{Feature Branch Workflow}
-Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit dem Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature einen Branch erstellt wurde. Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller mit dem Master Branch zusammengeführt werden darf. Um diese Regel zu erzwingen, wurde der Master Branch auf GitHub für alle Projekte entsprechend geschützt. Durch diesen Schritt, konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation, respektive des Codes durchführen muss.
-Auf der Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprintbeginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden(\cite{BaumannWicki2018}).
+Um möglichst effizient und unabhängig voneinander zu programmieren, sowie zu dokumentieren, wurde mit dem Feature Branch Workflow gearbeitet. Dies bedeutet, dass für jedes Feature ein Branch erstellt wurde. Weiter wurde eine Regelung eingeführt, wobei ein Branch nicht vom Ersteller mit dem Master Branch zusammengeführt werden darf. Um diese Regel zu erzwingen, wurde der Master Branch auf GitHub für alle Projekte entsprechend geschützt. Durch diesen Schritt, konnten wir die Sicherheit erhöhen, da eine zweite Person ein Review der Dokumentation, respektive des Codes durchführen muss.
+In Abbildung \ref{fig:FeatureBranchWorkflow} ist ein Auszug aus der Baumstruktur unserer Dokumentation dargestellt. Dabei ist zu erkennen, dass zu Sprintbeginn möglichst keine offenen Zweige (engl. Branches) mehr vorhanden sind und gegen Sprintende alle Zweige in den Master (in Abbildung \ref{fig:FeatureBranchWorkflow} schwarz dargestellt) über einen Pull Request zusammengeführt werden(\cite{BaumannWicki2018}).
 
 \begin{figure}[htb]
 	\center

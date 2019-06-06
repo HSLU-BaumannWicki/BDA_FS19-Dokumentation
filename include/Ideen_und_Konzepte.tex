@@ -1,11 +1,11 @@
 \chapter{Ideen und Konzepte}
 
 \section{Grundidee}
-Für die Konzepte, welche im Kapitel \ref{ch:konzeptEins} und \ref{ch:konzeptZwei} beschrieben sind, ist die Ausgangslage die, dass die Gefahr besteht, dass Exemplare im Hochregallager in falsche Behälter deplatziert werden. Weiter ist vonseiten des Kunden gewünscht, dass die Exemplare nicht nachgerüstet werden müssen (siehe Protokoll \ref{app:sec:protokollKickoff}). Aus diesem Grund gilt für beide Konzepte, dass lediglich die vorhandenen HF RFID Tags zur Verwendung stehen und keine weiteren alternative Ideen verwendet werden können.
+Für die Konzepte, welche im Kapitel \ref{ch:konzeptEins} und \ref{ch:konzeptZwei} beschrieben sind, ist die Ausgangslage, dass die Gefahr besteht, dass Exemplare im Hochregallager in falsche Behälter deplatziert werden. Weiter ist vonseiten des Kunden gewünscht, dass die Exemplare nicht nachgerüstet werden müssen (siehe Protokoll \ref{app:sec:protokollKickoff}). Aus diesem Grund gilt für beide Konzepte, dass lediglich die vorhandenen HF RFID Tags zur Verwendung stehen und keine weiteren alternative Ideen verwendet werden können.
 
 Das in Kapitel \ref{ch:konzeptEins} vorgestellte Konzept hat zum Ziel, dass bereits deplatzierte Exemplare im Hochregallager wiedergefunden werden können. Dabei wird dargelegt, wie vorgegangen werden soll, um die Suche möglichst effizient durchzuführen. Hierzu wird berechnet, wie lange eine Suche mit nur einer Antenne dauert und wie diese Suche optimiert werden kann, indem mehrere Antennen eingesetzt werden.
 
-Das in Kapitel \ref{ch:konzeptZwei} vorgestellt Konzept hat zum Ziel, dass Exemplare, welche vom Personal in einen falschen Behälter platziert werden, vor der Einlagerung erkannt und der Behälter im System entsprechend markiert werden. In diesem Konzept werden verschiedene Möglichkeiten dargelegt, wie eine solche Erkennung mit der Hilfe einer neuen Scanstation erstellt werden kann. Es wird schliesslich eine mögliche Lösung empfohlen.
+Das in Kapitel \ref{ch:konzeptZwei} vorgestellt Konzept hat zum Ziel, dass Exemplare, welche vom Personal in einen falschen Behälter platziert werden, vor der Einlagerung erkannt und der Behälter im System entsprechend markiert wird. In diesem Konzept werden verschiedene Möglichkeiten dargelegt, wie eine solche Erkennung mit der Hilfe einer neuen Scanstation erreicht werden kann. Es wird schliesslich eine mögliche Lösung empfohlen.
 
 \chapter{Konzept Eins: Suche}
 \label{ch:konzeptEins}
@@ -33,7 +33,8 @@ Für das Konzept zur Auffindung eines deplatzierten Exemplars im Hochregallager 
 	\item Interferenz mehrerer Antennen
 	\item Auslesen von gestapelten Tags
 \end{itemize}
-Für das Konzept zur Auffindung eines deplatzierten Exemplars im Hochregallager galt es folgende Technische Möglichkeiten abzuklären:
+
+Für das Konzept zur Verhinderung der Einlagerung eines deplatzierten Exemplars im Hochregallager galt es folgende technische Möglichkeiten abzuklären:
 \begin{itemize}
 	\item Effektive Reichweite zum Auslesen eines Tags (min 54cm)
 	\item Lesegeschwindigkeit Anzahl Tags (ca. 40Tags/s)
@@ -64,7 +65,7 @@ Die genaue Versuchsanordnung ist im Anhang \ref{app:ch:versuche} zu finden.
 
 \section{Vorgehen zur Abklärung der Technischen Möglichkeiten}
 
-Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte bei der Hardwarebeschaffung keine Inländische Vertreiber verwendet werden. Es wurde schliesslich der Hardwarehersteller Hyientech aus China für die Beschaffung der Hardware ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
+Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte für die Hardwarebeschaffung kein inländischer Vertreiber verwendet werden. Es wurde schliesslich der chinesische Hardwarehersteller Hyintech ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
 
 \begin{itemize}
 	\item HYH1W2T (RFID Lesegerät)
@@ -73,9 +74,9 @@ Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte bei der H
 
 Die genauen Spezifikationen der Hardware können in der Hardwarespezifikation gefunden werden \nocite{hyintech2019HYP3242} \nocite{hyintech2019HYH1WXT}.
 
-Da zudem keine weiteren Hersteller sich bereiterklärten für eine Leihgabe, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
+Da sich zudem keine weiteren Hersteller für eine Leihgabe bereiterklärten, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
 
-Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vorrichtung befestigt, anschliessend wurde das Tag an einer weiteren Vorrichtung befestigt und in einem gemäss den Testversuchsbeschreibungen definierten Position platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
+Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vorrichtung befestigt, anschliessend wurde der Tag an einer weiteren Vorrichtung befestigt und in einer definierten Position gemäss den Versuchsbeschreibungen platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
 
 \begin{figure}[htb]
 	\begin{subfigure}{.5\linewidth}
@@ -95,9 +96,9 @@ Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vor
 
 
 \subsection{Software}
-Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde für die Versuche eine eigene Applikation geschrieben, welche für die Protokolle der Resultate verantwortlich ist.
+Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde eine eigene Applikation geschrieben, welche für die Protokollierung der Resultate verantwortlich ist.
 
-Bei der Implementation der Software wurde beachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementation eines Prototyps oder MVP wiederverwendet werden kann.
+Bei der Implementierung der Software wurde darauf geachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementierung der Referenzimplementation wiederverwendet werden kann.
 
 Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 stattfindet und diese Schnittstelle vom Hersteller dokumentiert sei. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert. \nocite{hyintech2019dll}
 
@@ -109,8 +110,8 @@ Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikati
 \end{figure}
  
 \section{Erkenntnisse der Technischen Möglichkeiten}
-Es konnte festgestellt werden, dass die Reichweite der Antenne den Herstellerangaben entsprechen, sofern der Tag parallel zur Antenne ausgerichtet ist. Ist der Tag in einer Achse gedreht, so funktioniert die Auslesung ab einem Auslenkungswinkel von 60\SIUnitSymbolDegree\ nicht mehr. Weiter konnte die Lesegeschwindigkeit für 15 TagIDs ermittelt werden, welche bei rund 350ms liegt. Es wurde daher geschlussfolgert, dass es machbar ist 40 TagIDs pro Sekunde zu lesen.
-Bei einer optimalen Ausrichtung konnte die seitlich Reichweite bei einer Distanz von 50cm zur Antenne auf 25cm, respektive bei 60cm zur Antenne auf 12.5cm ermittelt werden. Wie schon beschrieben, können maximal ausgelenkte Tags (90\SIUnitSymbolDegree) in der Flucht nicht gelesen werden. In den Versuchen wurde ermittelt, dass der Tag, bis zu einer Distanz von 30cm zur Antenne, gelesen werden kann, sofern sich dieser nicht direkt in der Flucht befindet (siehe Abbildung \ref{fig:Seitlich90}).
+Es konnte festgestellt werden, dass die Reichweite der Antenne den Herstellerangaben entsprechen, sofern der Tag parallel zur Antenne ausgerichtet ist. Ist der Tag in einer Achse gedreht, so funktioniert die Auslesung ab einem Auslenkungswinkel von 60\SIUnitSymbolDegree\ nicht mehr. Weiter konnte die Lesegeschwindigkeit für 15 TagIDs ermittelt werden, welche bei rund 350ms liegt. Es wurde daher geschlussfolgert, dass es möglich ist 40 TagIDs pro Sekunde auszulesen.
+Bei einer optimalen Ausrichtung konnte die seitliche Reichweite bei einer Distanz von 50cm zur Antenne auf 25cm, respektive bei 60cm zur Antenne auf 12.5cm ermittelt werden. Wie schon beschrieben, können maximal ausgelenkte Tags (90\SIUnitSymbolDegree) in der Flucht der Antenne nicht ausgelesen werden. In den Versuchen wurde ermittelt, dass der Tag, bis zu einer Distanz von 30cm zur Antenne, gelesen werden kann, sofern sich dieser nicht direkt in der Flucht befindet (siehe Abbildung \ref{fig:Seitlich90}).
 
 \begin{figure}[htb]
 	\centering
@@ -119,7 +120,7 @@ Bei einer optimalen Ausrichtung konnte die seitlich Reichweite bei einer Distanz
 	\label{fig:Seitlich90}
 \end{figure}
 
-Weiter konnte in den Versuchen herausgefunden werden, dass ein Lesen durch ein Metall, sei dies Aluminium oder Stahl, unmöglich ist. Keiner der Tags hinter einer Metallplatte, im Minimum 0.75mm dick, konnte gelesen werden. Es konnte jedoch keine Abschirmung durch Bücher, Plastikbehälter, WLAN oder menschliche Hände festgestellt werden. Die Interferenz der Antennen konnte insofern nicht getestet werden, dass die Antennen nicht parallel betrieben werden konnten. Bei gestapelten Tags konnte eine starke Interferenz festgestellt werden. Um alle Tags erfolgreich auslesen zu können, muss ein Mindestabstand von 1.5cm in horizontaler und 3cm in vertikaler Richtung eingehalten werden.
+Weiter konnte in den Versuchen festgestellt werden, dass das Lesen durch Metall, sei dies Aluminium oder Stahl, unmöglich ist. Keiner der Tags hinter einer Metallplatte, im Minimum 0.75mm dick, konnte gelesen werden. Es konnte jedoch keine Abschirmung durch Bücher, Plastikbehälter, WLAN oder Hände festgestellt werden. Die Interferenz der Antennen konnte insofern nicht getestet werden, dass die Antennen nicht parallel betrieben werden konnten. Bei gestapelten Tags konnte eine starke Interferenz festgestellt werden. Um alle Tags erfolgreich auslesen zu können, muss ein Mindestabstand von 1.5cm in horizontaler und 3cm in vertikaler Richtung eingehalten werden.
 
 \section{Fazit der Validation}
-Das Konzept zur Auffindung eines deplazirten Exemplares im Hochregallager musste nach den gewonnen Erkenntnissen verworfen werden und wurde daher für die Machbarkeitsstudie nicht beachtet. Die Problematik der Auslenkung führte zu einer Anpassung in der Positionierung der Antennen im Konzeptdesign des Konzepts zur Verhinderung des Deplatzieren eines Exemplars vor Einlagerung in das Hochregallager, aber das Konzept wurde nach der Validiation der technischen Möglichkeiten immer noch als machbar eingestuft.
+Das Konzept zur Auffindung eines deplatzierten Exemplares im Hochregallager musste nach den gewonnen Erkenntnissen verworfen werden und wurde daher für die Machbarkeitsstudie nicht beachtet. Die Problematik der Auslenkung führte zu einer Anpassung in der Positionierung der Antennen im Design des Konzepts zur Verhinderung eines Deplatzieren eines Exemplars vor Einlagerung in das Hochregallager, aber das Konzept wurde nach der Validiation der technischen Möglichkeiten immer noch als machbar eingestuft.
