@@ -65,7 +65,7 @@ Die genaue Versuchsanordnung ist im Anhang \ref{app:ch:versuche} zu finden.
 
 \section{Vorgehen zur Abklärung der Technischen Möglichkeiten}
 
-Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte für die Hardwarebeschaffung kein inländischer Vertreiber verwendet werden. Es wurde schliesslich der chinesische Hardwarehersteller Hyintech für die Beschaffung der Hardware ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
+Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte für die Hardwarebeschaffung kein inländischer Vertreiber verwendet werden. Es wurde schliesslich der chinesische Hardwarehersteller Hyintech ausgewählt. Dabei wurde auf folgende Komponenten gesetzt:
 
 \begin{itemize}
 	\item HYH1W2T (RFID Lesegerät)
@@ -76,7 +76,7 @@ Die genauen Spezifikationen der Hardware können im Anhang \ref{app:ch:hardwares
 
 Da sich zudem keine weiteren Hersteller für eine Leihgabe bereiterklärten, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
 
-Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vorrichtung befestigt, anschliessend wurde das Tag an einer weiteren Vorrichtung befestigt und in einer definierten Position gemäss den Versuchsbeschreibungen platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
+Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vorrichtung befestigt, anschliessend wurde der Tag an einer weiteren Vorrichtung befestigt und in einer definierten Position gemäss den Versuchsbeschreibungen platziert und versucht auszulesen (siehe Abbildungen \ref{fig:versuchsaufbauten} a und b).
 
 \begin{figure}[htb]
 	\begin{subfigure}{.5\linewidth}
@@ -98,7 +98,7 @@ Für die Durchführung der Versuche wurden die Antennen auf einer hölzernen Vor
 \subsection{Software}
 Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde eine eigene Applikation geschrieben, welche für die Protokollierung der Resultate verantwortlich ist.
 
-Bei der Implementierung der Software wurde darauf geachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementation eines Prototyps oder MVP wiederverwendet werden kann.
+Bei der Implementierung der Software wurde darauf geachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementierung der Referenzimplementation wiederverwendet werden kann.
 
 Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 stattfindet und diese Schnittstelle vom Hersteller dokumentiert sei. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert. Die genauen Spezifikationen zu dieser DLL können im Anhang \ref{app:ch:dllspezifikation} gefunden werden.
 
@@ -120,7 +120,7 @@ Bei einer optimalen Ausrichtung konnte die seitliche Reichweite bei einer Distan
 	\label{fig:Seitlich90}
 \end{figure}
 
-Weiter konnte in den Versuchen festgestellt werden, dass das Lesen durch ein Metall, sei dies Aluminium oder Stahl, unmöglich ist. Keiner der Tags hinter einer Metallplatte, im Minimum 0.75mm dick, konnte gelesen werden. Es konnte jedoch keine Abschirmung durch Bücher, Plastikbehälter, WLAN oder Hände festgestellt werden. Die Interferenz der Antennen konnte insofern nicht getestet werden, dass die Antennen nicht parallel betrieben werden konnten. Bei gestapelten Tags konnte eine starke Interferenz festgestellt werden. Um alle Tags erfolgreich auslesen zu können, muss ein Mindestabstand von 1.5cm in horizontaler und 3cm in vertikaler Richtung eingehalten werden.
+Weiter konnte in den Versuchen festgestellt werden, dass das Lesen durch Metall, sei dies Aluminium oder Stahl, unmöglich ist. Keiner der Tags hinter einer Metallplatte, im Minimum 0.75mm dick, konnte gelesen werden. Es konnte jedoch keine Abschirmung durch Bücher, Plastikbehälter, WLAN oder Hände festgestellt werden. Die Interferenz der Antennen konnte insofern nicht getestet werden, dass die Antennen nicht parallel betrieben werden konnten. Bei gestapelten Tags konnte eine starke Interferenz festgestellt werden. Um alle Tags erfolgreich auslesen zu können, muss ein Mindestabstand von 1.5cm in horizontaler und 3cm in vertikaler Richtung eingehalten werden.
 
 \section{Fazit der Validation}
 Das Konzept zur Auffindung eines deplatzierten Exemplares im Hochregallager musste nach den gewonnen Erkenntnissen verworfen werden und wurde daher für die Machbarkeitsstudie nicht beachtet. Die Problematik der Auslenkung führte zu einer Anpassung in der Positionierung der Antennen im Design des Konzepts zur Verhinderung eines Deplatzieren eines Exemplars vor Einlagerung in das Hochregallager, aber das Konzept wurde nach der Validiation der technischen Möglichkeiten immer noch als machbar eingestuft.
