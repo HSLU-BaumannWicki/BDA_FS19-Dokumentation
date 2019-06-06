@@ -1,9 +1,9 @@
 \section{Strategie}
-Sollte ein Exemplar verlegt werden, soll dieses vor Einlagerung des betroffenen Behälters bemerkt werden und dieser aus dem Einlagerungsprozess aussortiert oder markiert werden. Die so behobene Möglichkeit eines Einlagerns eines falsch befüllten Behälters führt zu einem erhöhten Vertrauen in den Prozess. Das Verlegen eines Exemplars soll so verunmöglicht werden. Dies führt zu besserem Vertrauen der Mitarbeiter der Speicherbibliothek in den Prozess und bessere Möglichkeit für den Fokus auf die Hauptarbeitstätigkeit (nicht Kontrolle eines Behälters).
+Sollte ein Exemplar verlegt werden, soll dies vor Einlagerung des betroffenen Behälters bemerkt werden und dieser aussortiert oder markiert werden. Die so behobene Möglichkeit des Einlagerns eines falsch befüllten Behälters führt zu einem erhöhten Vertrauen in den Prozess. Das Verlegen eines Exemplars soll so verunmöglicht werden. Dies führt zu höherem Vertrauen der Mitarbeiter der Speicherbibliothek in den Prozess und erhöht den Fokus auf die Hauptarbeitstätigkeit.
 
 \section{Ideenbeschreibung}
 
-Die generelle Idee dieses Konzepts ist eine Station in das Förderband zu integrieren, an der der Behälter durchfährt und an der Stelle dieser gescannt wird und Unstimmigkeiten erkannt werden. Dafür würden verschiedene Orte und Komponenten in Frage kommen. Diese sind daher jeweils einzeln in Betracht gezogen worden.
+Die generelle Idee dieses Konzepts ist eine Station in das Förderband zu integrieren, an welcher der Behälter durchfährt. An der Stelle wird dieser gescannt und Unstimmigkeiten werden erkannt. Dafür kommen verschiedene Orte und Komponenten infrage. Diese wurden daher jeweils einzeln in Betracht gezogen.
 
 \subsection{Position}
 
@@ -14,7 +14,7 @@ Die generelle Idee dieses Konzepts ist eine Station in das Förderband zu integr
 \end{figure}
 
 \subsubsection{Rüstplatz}
-Da der Behälter während dem Entnehmen und Abfüllen des Behälters vergleichsweise lang stillsteht, hätte man an dieser Stelle sicher genug Zeit alle RFID Tags auszulesen. Mögliche Nachteile sind Platzmangel und Interferenzen durch Exemplare welche nicht im Behälter sind aber fälschlicherweise auch erfasst werden, da sie in der Nähe liegen.
+Da der Behälter während dem Entnehmen und Befüllen vergleichsweise lang stillsteht, hätte man an dieser Stelle sicher genug Zeit alle RFID Tags auszulesen. Mögliche Nachteile sind Platzmangel und Interferenzen durch Exemplare, welche nicht im Behälter sind, aber fälschlicherweise auch erfasst wurden, da sie in der Nähe liegen.
 \begin{itemize}
 	\pro Genügend Zeit für das Auslesen aller Tags
 	\pro Früh im Prozess für eine Meldung
@@ -86,7 +86,7 @@ Der Behälter fährt vor Übergabe in das Hochregallager in einem Lift vertikal 
 \subsection{Identifikation des Behälters}
 
 \subsubsection{Barcodeleser}
-An jedem Behälter ist ein Barcode aufgeklebt (auf beiden Seiten jeweils an der richtigen Stelle, sodass die Position durch eine Drehung überführt werden kann). Durch Auslesen dieses Strichcodes ist eine Eindeutige Identifikation des Behälters möglich.
+An jedem Behälter ist ein Barcode aufgeklebt (auf beiden Seiten jeweils an der richtigen Stelle, sodass die Position durch eine Drehung überführt werden kann). Durch Auslesen dieses Strichcodes ist eine eindeutige Identifikation des Behälters möglich.
 \begin{itemize}
 	\pro Behälter eindeutig identifiziert
 	\pro Keine Abhängigkeiten
@@ -94,7 +94,7 @@ An jedem Behälter ist ein Barcode aufgeklebt (auf beiden Seiten jeweils an der 
 \end{itemize}
 
 \subsubsection{Bestimmung über die Mehrheit der Tags}
-Falls man mehrere Tags identifiziert hat und weiss zu welchen Behältern diese gehören, kann man den nicht zum gleichen Behälter gehörenden Tag identifizieren.
+Falls man mehrere Tags identifiziert hat und weiss, zu welchen Behältern diese gehören, kann man den nicht zum gleichen Behälter gehörenden Tag identifizieren.
 \begin{itemize}
 	\pro Positionsunabhängig
 	\con Aktuelle Informationen über Tag und Behälter nötig (Schnittstelle Datenbank)
@@ -112,7 +112,7 @@ Es wäre vorstellbar, dass man den Behälter, nach einer Identifikation des Inha
 \end{itemize}
 
 \subsubsection{Audiovisuelles Signal}
-Man könnte eine Warnung abspielen sobald ein fehlplatziertes Exemplar identifiziert worden ist (Sirene, Warnlampe).
+Man könnte eine Warnung abspielen sobald ein fehlplatziertes Exemplar identifiziert wurde (Sirene, Warnlampe).
 \begin{itemize}
 	\pro Früh im Prozess
 	\pro Keine Abhängigkeiten
@@ -139,17 +139,17 @@ Man könnte, sobald ein fehlplatziertes Exemplar erkannt wurde, ein Bericht an d
 \end{figure}
 
 \subsubsection{Variante 1: Früherkennung und Aussortierung (Rot)}
-In dieser Variante wurde Wert darauf gelegt, möglichst wenig Interferenzen zu haben, daher wurde sich für eine Antenne entschieden. Es soll über die Mehrheit der Tags der aktuelle Behälter bestimmt werden und falls Tags eines anderen Behälters gefunden wurde, der Behälter nicht eingelagert, sondern aussortiert werden (sprich ein Steuerungssignal an das Förderband gegeben werden). Der Ort wurde ausgewählt, da der Behälter dort eine kurze Pause einlegt. Diese Variante hängt stark davon ab wie schnell und fehlerfrei Tags ausgelesen werden können und ob eine Schnittstelle zur Steuersoftware existiert die wir nutzen können.
+In dieser Variante wurde Wert darauf gelegt, möglichst wenig Interferenzen zu haben, daher fiel die Entscheidung auf eine Antenne. Über die Mehrheit der Tags soll der aktuelle Behälter identifiziert werden und falls ein deplatziertes Exemplar gefunden wurde, der Behälter nicht eingelagert, sondern aussortiert werden (sprich ein Steuerungssignal an das Förderband gegeben werden). Dieser Ort wurde ausgewählt, da der Behälter dort eine kurze Pause einlegt. Diese Variante hängt stark davon ab wie schnell und fehlerfrei Tags ausgelesen werden können und ob eine Schnittstelle zur Steuersoftware existiert die wir nutzen können.
 
 \subsubsection{Variante 2: Weitflächige Erkennung und Aussortierung (Grün)}
-Es soll durch mehrere Antennen eine grössere Abdeckung erreicht werden und so sichergestellt werden, dass alle Tags ausgelesen werden können. Auch bei dieser Variante soll der Behälter über die Mehrheit der Tags ausgelesen werden und dieser, wenn nötig, aussortiert werden.
+Es soll durch mehrere Antennen eine grössere Abdeckung erreicht und so sichergestellt werden, dass alle Tags ausgelesen werden können. Auch bei dieser Variante soll der Behälter über die Mehrheit der Tags ausgelesen werden und dieser, wenn nötig, aussortiert werden.
 
 \subsubsection{Variante 3: Erkennung und Signalisierung (Blau)}
-Bei dieser Variante soll der Leser bei der Warteposition vor der Einlagerung positioniert werden, da dort die Behälter ein paar Sekunden verbleiben. Danach sollen die erkannten Tags und der Behälter als Mitteilung an die Arbeitsstation geschickt werden (Mail, Middleware, Signallampe). Das mögliche Problem dieser Variante ist, dass zwei Behälter nebeneinander in der Warteposition sein können und dadurch allenfalls Falschpositive generiert werden können.
+Bei dieser Variante soll der Leser bei der Warteposition vor der Einlagerung positioniert werden, da dort die Behälter ein paar Sekunden verbleiben. Danach sollen die erkannten Tags und der Behälter als Mitteilung an die Arbeitsstation geschickt werden (Mail, Middleware, Signallampe). Das mögliche Problem dieser Variante ist, dass zwei Behälter nebeneinander in der Warteposition sein können und dadurch allenfalls Falschpositive generiert werden könnten.
 
 \subsection{Wahl der Variante}
 
-Das Projektteam empfiehlt Variante Zwei, da in den Versuchen die Wichtigkeit der Ausrichtung der Tags festgestellt wurden. Daher werden zwei Antennen verwendet und wie in Abbildung \ref{fig:PosAntennen} dargestellt, damit die zwei Varianten der Bücherlagerung (in Abbildung \ref{fig:LagExemplare} dargestellt) gelesen werden können. Die Aussortierung wird empfohlen, damit der Prozess voll autonom geschieht.
+Das Projektteam empfiehlt Variante Zwei, da in den Versuchen die Wichtigkeit der Ausrichtung der Tags festgestellt wurden. Daher werden zwei Antennen verwendet und wie in Abbildung \ref{fig:PosAntennen} dargestellt, damit die zwei Varianten der Bücherlagerung (siehe Abbildung \ref{fig:LagExemplare}) gelesen werden können. Die Aussortierung wird empfohlen, damit der Prozess voll autonom geschieht.
 
 \subsubsection{Übersicht der Hardwarekomponenten}
 Es sollen folgende Komponenten verwendet werden:
