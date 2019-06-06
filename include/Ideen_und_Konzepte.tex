@@ -72,7 +72,7 @@ Durch das knappe Budget, welches dem Team zur Verfügung stand, konnte für die 
 	\item 2x HYP3242 (RFID Antennen)
 \end{itemize}
 
-Die genauen Spezifikationen der Hardware können im Anhang \ref{app:ch:hardwarespez} gefunden werden.
+Die genauen Spezifikationen der Hardware können in der Hardwarespezifikation gefunden werden \nocite{hyintech2019HYP3242} \nocite{hyintech2019HYH1WXT}.
 
 Da sich zudem keine weiteren Hersteller für eine Leihgabe bereiterklärten, können alle folgenden Aussagen nur für die oben gelistete Hardware gemacht werden.
 
@@ -100,7 +100,7 @@ Da für viele Versuche eine genaue Messung eine wichtige Rolle spielt, wurde ein
 
 Bei der Implementierung der Software wurde darauf geachtet, dass die Kommunikation mit der Hardware bereits soweit abstrahiert wird, dass diese Komponente bei der Implementierung der Referenzimplementation wiederverwendet werden kann.
 
-Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 stattfindet und diese Schnittstelle vom Hersteller dokumentiert sei. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert. Die genauen Spezifikationen zu dieser DLL können im Anhang \ref{app:ch:dllspezifikation} gefunden werden.
+Der vereinfachte Aufbau der Applikation ist in Abbildung \ref{fig:test_applikation_aufbau} dargestellt. Für die Kommunikation mit der Hardware wurde zuerst angenommen, dass diese über RS232 stattfindet und diese Schnittstelle vom Hersteller dokumentiert sei. Es stellte sich jedoch heraus, dass Hyientech lediglich eine DLL zur Verfügung stellt, welche selber über die RS232 die Verbindung aufbaut und mit dem Gerät kommuniziert. \nocite{hyintech2019dll}
 
 \begin{figure}[htb]
 	\centering
